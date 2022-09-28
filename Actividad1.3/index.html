@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TABLAS ALEJANDRO ALBEROLA</h1>
+    <div>
+        <div class="numero">
+            <h2>Tabla del 7:</h2>
+            <script>
+                let variable = 7;
+                for (let x = 0; x <= 10; x++) {
+                    document.write(variable, " * ", x, " = ", variable * x, "<br>");
+                }
+            </script>
+        </div>
+        <div class="numero">
+            <h2>Tabla del 8:</h2>
+            <script>
+                let vari = 8;
+                let y = 0;
+                do {
+                    document.write(vari, " + ", y, " = ", vari + y, "<br>");
+                    y++;
+                } while (y <=10);
+            </script>
+        </div>
+        <div class="numero">
+            <h2>Tabla del 9:</h2>
+            <script>
+                let num = 9;
+                let z = 0;
+                while ( z <= 10){
+                    document.write(num, " / ", z, " = ", (num / z).toFixed(4), "<br>"); 
+                    z++;
+                }
+            </script>
+        </div>
+        <div class="numero">
+            <h2>Desplazamiento de Bits</h2>
+            <script>
+                document.write("125 / 8 = " + (125>>3)+"<br>");
+                document.write("40 x 4 = " + (40<<2)+"<br>");
+                document.write("25 / 2 = " + (25>>1)+"<br>");
+                document.write("10 x 16 = " + (10<<4)+"<br>");
+            </script>
+        </div>
+    </div>
+    <script src="Actividad1.3.js"></script>
+</body>
+</html>

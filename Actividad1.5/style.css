@@ -1,0 +1,11 @@
+body{
+    background-color: azure;
+    margin: 3%;
+    margin-left: 5%;
+}
+
+.titulo{
+    text-align: center;
+    font-family: sans-serif;
+    font-style: oblique;
+}
