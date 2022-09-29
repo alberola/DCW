@@ -20,8 +20,11 @@ function categoria(){
             case (anio >= 2001 && anio <=2003):
                 document.getElementById("categoria").innerHTML = "Se encuenta en la categoria juvenil.";
             break;
-            case (anio < 2001):
+            case (anio < 2001 && anio > 1900):
                 document.getElementById("categoria").innerHTML = "Se encuenta en la categoria senior.";
+            break;
+            case (anio <1900):
+                document.getElementById("categoria").innerHTML = "Vuela a introducir el año, ¿ES IMPOSIBLE QUE ESTÉ VIVO?";
             break;
         }
     } else {
