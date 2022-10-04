@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3%;
+}
+.ahorcado{
+    display: flex;
+    flex-direction: row;
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    border:none;
+}
+.botones input{
+    margin: 5%;;
+}
+#contador{
+    font-size: 60px;
+    text-align: right;
+    margin-right: 3%;
+}
