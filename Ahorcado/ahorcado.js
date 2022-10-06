@@ -54,7 +54,6 @@ function probar(){
             booleana = true;
             aciertos++;
             document.getElementById("span"+index).innerHTML = valorInput;
-            console.log(aciertos);
         } 
     }
     //Comprobación para ver número de errores permitidos
