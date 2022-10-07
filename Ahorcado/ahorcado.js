@@ -84,7 +84,7 @@ function probar(){
             alert("Lo sentimos has perdido el juego.");
             clearInterval(cont);
         }
-        //Si el número de aciertos es igual a la longitud 
+    //Si el número de aciertos es igual a la longitud 
     } else if (aciertos == auxVar.length){
         alert("Felicidades ha ganado el juego.");
         clearInterval(cont);
