@@ -96,7 +96,7 @@ function probar(){
 //Metodo para implementar el comprobador de caracteres
 function comprobarCaracteres(){
     document.getElementById("caracteres").innerHTML = "Caracteres Introducidos:<br><br>"+caracteres;
-    if ((caracteres.indexOf(document.getElementById("texto").value.toUpperCase())) == -1){
+    if ((caracteres.indexOf(document.getElementById("texto").value.toUpperCase())) == -1 ){
         caracteres[contadorCaracteres] = document.getElementById("texto").value.toUpperCase();
         contadorCaracteres++;
         document.getElementById("caracteres").innerHTML = "Caracteres Introducidos:<br><br>"+caracteres;
