@@ -97,12 +97,17 @@ function probar(){
 function comprobarCaracteres(){
     document.getElementById("caracteres").innerHTML = "Caracteres Introducidos:<br><br>"+caracteres;
     if ((caracteres.indexOf(document.getElementById("texto").value.toUpperCase())) == -1 ){
+        if (document.getElementById("texto").value == ""){
+            alert ("Recuerda que tienes que introducir un carácter.");
+            return false;
+        } else {
         caracteres[contadorCaracteres] = document.getElementById("texto").value.toUpperCase();
         contadorCaracteres++;
         document.getElementById("caracteres").innerHTML = "Caracteres Introducidos:<br><br>"+caracteres;
         return true;
+        }
     } else {
-        alert("Por favor pruebe con otro caracter que no haya introducido.");
+        alert("Por favor pruebe con otro carácter que no haya introducido.");
         return false;
     }
 }
