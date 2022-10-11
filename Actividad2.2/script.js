@@ -27,6 +27,7 @@ var tabla = [
 ];
 
 function mostrarTabla(){
+    document.getElementById("tabla").innerHTML = "";
     for (let index = 0; index < tabla.length; index++) {
         document.getElementById("tabla").innerHTML += 
         "<tr>"
@@ -35,15 +36,23 @@ function mostrarTabla(){
     }  
 }
 function mostrarProvincia(){
+    document.getElementById("tabla").innerHTML = "";
     for (let index = 0; index < tabla.length; index++) {
         if (tabla[index][1] == document.getElementById("provincia").value)
+        document.getElementById("tabla").innerHTML += 
+        "<tr>"
+            +"<td>"+tabla[index][0]+"</td><td>"+tabla[index][2]+"</td>"
+        "</tr>";
+        document.getElementById("provincia").setAttribute = "";
+    }  
+}
+function mostrarCuota(){
+    document.getElementById("tabla").innerHTML = "";
+    for (let index = 0; index < tabla.length; index++) {
+        if (tabla[index][2] < document.getElementById("provincia").value)
         document.getElementById("tabla").innerHTML += 
         "<tr>"
             +"<td>"+tabla[index][0]+"</td><td>"+tabla[index][1]+"</td><td>"+tabla[index][2]+"</td>"
         "</tr>";
     }  
-}
-function mostrarCuota(){
-
-
 }
