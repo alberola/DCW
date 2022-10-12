@@ -43,7 +43,6 @@ function mostrarProvincia(){
         "<tr>"
             +"<td>"+tabla[index][0]+"</td><td>"+tabla[index][2]+"</td>"
         "</tr>";
-        document.getElementById("provincia").setAttribute = "";
     }  
 }
 function mostrarCuota(){
