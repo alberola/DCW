@@ -17,7 +17,7 @@ console.log(auxVar);
 
 //Función que implementa un contador cada 1 seg.
 function contador(){
-    if(num == 0){   
+    if(num == -1){   
         alert("Se ha agotado el tiempo...");    
         recargar();
     } else {
