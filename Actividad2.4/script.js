@@ -39,14 +39,14 @@ function formatoFechas(){
     escribir.innerHTML += fechaIntroducida.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' , year: 'numeric' });
 }
 
-//
+//Parte del codigo que se ejecuta al entrar en contacto con los elementos input radio del HTML
 const diaHoy = new Date();
 document.getElementById("opcion").addEventListener("input", (e) => {
-    document.getElementById("formatoHoras").innerHTML = "Detallada";
+    document.getElementById("formatoHoras").innerHTML = diaHoy.getHours()+":"+diaHoy.getMinutes()+":"+diaHoy.getSeconds();
 });
 document.getElementById("opcion1").addEventListener("input", (e) => {
-    document.getElementById("formatoHoras").innerHTML = "AM";
+    document.getElementById("formatoHoras").innerHTML =   diaHoy.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false })+" AM.";
 });
 document.getElementById("opcion2").addEventListener("input", (e) => {
-    document.getElementById("formatoHoras").innerHTML = "PM";
+    document.getElementById("formatoHoras").innerHTML = diaHoy.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })+".";
 });
