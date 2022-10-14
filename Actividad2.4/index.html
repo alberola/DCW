@@ -9,30 +9,31 @@
 </head>
 <body>
     <h1>Ejercicios con Fechas</h1>
-    <div>
-        <div>
+        <div class="caja">
             <h3>EJERCICIO: u3e1_fincurso</h3>
             <p id="finCurso"></p>
-            <button onclick="finCurso()">Resolver</button>
+            <button class="button-74" onclick="finCurso()">Resolver</button>
         </div>
-        <div>
+        <hr color="#372301">
+        <div class="caja">
             <h3>EJERCICIO: u3e2_domingos</h3>
             <p id="domingos"></p>
-            <button onclick="domingos()">Resolver</button>
+            <button class="button-74" onclick="domingos()">Resolver</button>
         </div>
-        <div>
+        <hr color="#372301">
+        <div class="caja">
             <h3>EJERCICIO: u3e3_formatofechas</h3>
             <p id="formatoFechas"></p>
-            <button onclick="formatoFechas()">Resolver</button>
+            <button class="button-74" onclick="formatoFechas()">Resolver</button>
         </div>
-        <div onload="formatoHoras()">
+        <hr color="#372301">
+        <div onload="formatoHoras()" class="caja">
             <h3>EJERCICIO: u3e4_formatohoras</h3>
             <input type="radio" name="opcion" value="0" id="opcion">Detallado <br>
             <input type="radio" name="opcion" value="1" id="opcion1">AM <br>
             <input type="radio" name="opcion" value="2" id="opcion2">PM <br>
-            <p id="formatoHoras"></p>
+            <div class="button-74" id="texto"><p id="formatoHoras"></p></div> 
         </div>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>

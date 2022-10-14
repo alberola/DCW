@@ -3,7 +3,7 @@ function finCurso(){
     const fechaTope = new Date ('6/24/2023');
     const diferenciaTiempo = Math.abs(fechaTope-hoy);
     const diferenciaDias = Math.ceil( diferenciaTiempo / (1000*60*60*24));
-    document.getElementById("finCurso").innerHTML = "Desde hoy hasta el 24 de Junio quedan: "+diferenciaDias;
+    document.getElementById("finCurso").innerHTML = "Desde hoy hasta el 24 de Junio quedan: "+diferenciaDias+" días.";
 }
 function domingos(){
     let dias = parseInt(prompt("Introduce el dia de tu cumpleaños"));
@@ -40,13 +40,21 @@ function formatoFechas(){
 }
 
 //Parte del codigo que se ejecuta al entrar en contacto con los elementos input radio del HTML
-const diaHoy = new Date();
+document.getElementById("texto").style.display = "none";
 document.getElementById("opcion").addEventListener("input", (e) => {
+    let diaHoy = new Date();
+    document.getElementById("texto").style.display = "block";
     document.getElementById("formatoHoras").innerHTML = diaHoy.getHours()+":"+diaHoy.getMinutes()+":"+diaHoy.getSeconds();
 });
 document.getElementById("opcion1").addEventListener("input", (e) => {
+    let diaHoy = new Date();
+    document.getElementById("texto").style.display = "block";
     document.getElementById("formatoHoras").innerHTML =   diaHoy.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false })+" AM.";
 });
 document.getElementById("opcion2").addEventListener("input", (e) => {
+    let diaHoy = new Date();
+    document.getElementById("texto").style.display = "block";
     document.getElementById("formatoHoras").innerHTML = diaHoy.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })+".";
 });
+
+
