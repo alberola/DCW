@@ -2,12 +2,12 @@ function abrirVentana(){
     window.open('index2.html','' ,"width=800, height=600, scrollbars=no, resizable=no, menubar=no" );
 }
 function datosVentana(){
-    titulo.innerHTML = "<h3>Ejemplo de Ventana Nueva</h3>"+
+    document.getElementById("titulo").innerHTML = "<h3>Ejemplo de Ventana Nueva</h3>"+
     "<br>URL Completa: " + window.document.URL+
     ".<br>Protocolo utilizado: "+ window.location.protocol+
     ".<br>Nombre en código del navegador: "+ navigator.appCodeName+
-    ".<br> Java : "+ (navigator.javaEnabled())?'Si':'No'+
-    ".<br><iframe src='www.google.es' width='800px' height='600px'></iframe>";
+    ".<br> Java : "+ navigator.javaEnabled()+
+    ".<br><iframe src='https://www.sport.es/es/' width='800px' height='600px' style='background-color: #FFFFFF'></iframe>";
 }
 
 function escribirDatos(){
@@ -21,7 +21,7 @@ function escribirDatos(){
     datos.innerHTML = "Buenos días "+ nombre+
     ".<br>Tu nombre tiene "+nombre.length+" caracteres, incluidos espacios"+
     ".<br>La primera letra "+(nombre.charAt(0)).toLocaleUpperCase()+" de tu nombre está en la posición:" + nombre.indexOf((nombre.charAt(0)))+
-    ".<br>La última letra "+(nombre.charAt(nombre.length-1)).toLocaleUpperCase()+" de tu nombre está en la posición:" +nombre.lastIndexOf(((nombre.charAt(nombre.length-1))))+ 
+    ".<br>La última letra "+(nombre.charAt(nombre.length-1)).toLocaleUpperCase()+" de tu nombre está en ala posición:" +nombre.lastIndexOf(((nombre.charAt(nombre.length-1))))+ 
     ".<br>Tu nombre menos las 3 primeras letras es: "+nombre.substring(3, nombre.length)+
     ".<br>Tu nombre todo en mayúsculas es: "+nombre.toUpperCase()+
     ".<br>Tu edad es: "+(fechaActual.getFullYear() - fechaIntroducida.getFullYear()) +" años"+
