@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body>
+<body onload="select(), selectInverso(), numeroPaises()">
     <h1 class="display-5 text-center m-4">EJERCICIO: u4e1_arrays</h1>
     <div class="container-fluid align-items-center justify-content-center">
         <div class="text-center">
@@ -19,19 +19,19 @@
                 <option value="inicio" selected disabled>Lista de paises Inversa</option>
             </select>
             <h5 class="m-3 mt-4">Introduce un país para añadirlo al principio:</h5>
-            <input type="text" id="anadirPais" autocomplete="off" class="form-control-sm  border-opacity-25 shadow-lg bg-light rounded"><button onclick="agregarElemento()" class="shadow-lg rounded btn btn-success btn-outline-dark m-4">Insertar</button>
+            <input type="text" id="anadirPais" autocomplete="off" class="form-control-sm  border-opacity-25"><button onclick="agregarElemento()" class=" btn btn-success btn-outline-dark m-4">Insertar</button>
             <p id="errorTexto"></p>
             <h5>Introduce un país para añadirlo al final:</h5>
-            <input type="text" id="anadirPaisFinal" autocomplete="off"class="form-control-sm  border-opacity-25 shadow-lg bg-light rounded"><button onclick="agregarElementoFinal()" class="shadow-lg rounded btn btn-success btn-outline-dark m-4">Insertar</button>
+            <input type="text" id="anadirPaisFinal" autocomplete="off"class="form-control-sm  border-opacity-25 "><button onclick="agregarElementoFinal()" class=" btn btn-success btn-outline-dark m-4">Insertar</button>
             <p id="errorTextoFinal"></p>
-            <button onclick="borrarElemento()" class="btn btn-danger btn-outline-dark m-2 shadow-lg rounded">Borrar 1º Elemento</button>
-            <button onclick="borrarUltimoElemento()" class="btn btn-danger btn-outline-dark shadow-lg rounded">Borrar Último Elemento</button>
+            <button onclick="borrarElemento()" class="btn btn-danger btn-outline-dark m-2" id="borrar">Borrar 1º Elemento</button>
+            <button onclick="borrarUltimoElemento()" class="btn btn-danger btn-outline-dark" id="borrarUltimo">Borrar Último Elemento</button>
             <p id="borradoTexto"></p>
             <h5>Introduce un pais o una posición</h5>
-            <input type="text" id="posicionArray" class="form-control-sm  border-opacity-25 m-4 shadow-lg bg-light rounded">
+            <input type="text" id="posicionArray" class="form-control-sm  border-opacity-25 m-4">
             <p id="datosArray"></p>
             <h5>Introduce un intervalo para mostrar en la lista</h5>
-            <input type="text" id="intervalo" class="form-control-sm  border-opacity-25 m-4 shadow-lg bg-light rounded">
+            <input type="text" id="intervalo" class="form-control-sm  border-opacity-25 m-4 ">
             <p id="intervaloArray"></p>
         </div>
     </div>
