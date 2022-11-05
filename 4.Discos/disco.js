@@ -121,15 +121,26 @@ function recogidaDatos(){
   let grupo = document.getElementById("grupo").value;
   let anio = document.getElementById("anio").value;
   let tipo = document.getElementById("tipo").value;
-  console.log(nombre);
   let localizacion = document.getElementById("localizacion").value;
   if (!nombre || !grupo || !anio || !tipo || !localizacion ){
     errorText.style.color = "red"; 
     errorText.innerHTML = "No puede dejar ningún campo vacio.";
   } else {
-    //Con evento de captura leemos que boton pulsamos para meter el disco al inicio o final de la disquera
-    document.getElementById('insertaDisco').addEventListener("click", function(){ insertarDiscos(nombre, grupo, anio, tipo, localizacion)});
-    document.getElementById('insertaDiscoFinal').addEventListener("click", function(){ insertarDiscosFinal(nombre, grupo, anio, tipo, localizacion)});
+    insertarDiscos(nombre, grupo, anio, tipo, localizacion);
+  }
+}
+//Recogida de datos para insertar Discos al final
+function recogidaDatosFinal(){
+  let nombre = document.getElementById("nombre").value;
+  let grupo = document.getElementById("grupo").value;
+  let anio = document.getElementById("anio").value;
+  let tipo = document.getElementById("tipo").value;
+  let localizacion = document.getElementById("localizacion").value;
+  if (!nombre || !grupo || !anio || !tipo || !localizacion ){
+    errorText.style.color = "red"; 
+    errorText.innerHTML = "No puede dejar ningún campo vacio.";
+  } else {
+    insertarDiscosFinal(nombre, grupo, anio, tipo, localizacion);
   }
 }
 
@@ -174,6 +185,7 @@ function opcionConsultar(){
     //limpiamos la tabla siempre
     document.getElementById('tablaNombre').innerHTML = "<tr><th>Nombre</th><th>Grupo</th><th>Año</th><th>Tipo</th><th>Localización</th></tr>";
     let nombre = inputMostrarNombre.value;
+    let control = false;
     for (var i = 0; i < disquera.length; i++){
       if (disquera[i].nombre == nombre){
         document.getElementById('tablaNombre').innerHTML += "<tr>"+
@@ -183,11 +195,13 @@ function opcionConsultar(){
           "<td>"+disquera[i].tipo+"</td>"+
           "<td>"+disquera[i].localizacion+"</td>"+
           "</tr>";
+          control = true;
+          errorText.innerHTML ="";
       }
     }
     if (nombre == ""){
       errorText.innerHTML = "";
-    } else {
+    } else if (!control){
       errorText.style.color = 'red';
       errorText.innerHTML = "No se encuentra el disco en la disquera.";
     }
