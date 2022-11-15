@@ -2,7 +2,7 @@
 //Generador de evento en cada posición en la que se encuentre un input para posteriorme comprobarlos
 var input = document.querySelectorAll('input');
 for (let i = 0; i < input.length; i++) {
-    //Se insertaria cad input en un array el cual leeremos y crearemos un evento de escucha a la esperade la funcion validar
+    //Se insertaria cad input en una coleccion de datos el cual leeremos y crearemos un evento de escucha a la esperade la funcion validar
     input[i].addEventListener("input", function () {validar(this)});
     //Creamos el elemnto que queramos insertar
     var crearP = document.createElement('p');
@@ -24,14 +24,17 @@ var control = true;
 
 //Función generica para determinar objetivo a validar y salte el error correspondiente.
 function validar(parametro){
+    //Variables para obtener nombre y valor del input que nos entra
     let nombreInput = parametro.name;
     let valorInput = parametro.value;
-    //Parametro para validar nif
+    //Patterns para validar distintos campos
     const nifPattern = /^\d{8}[A-Z]{1}$/;
     const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const fechaPattern = /^\d{2}-\d{2}-\d{2}$/;
     const telefonoPattern = /^\d{9}$/; 
     let horaPattern = /\d{2}:\d{2}/;
+
+    //Swtich que comprobará el nombre del input donde se detecta la pulsación de la tecla y segun sea uno u otro actuará de una forma u otra.
     switch (nombreInput){
 
         case "nombre":
@@ -178,12 +181,24 @@ function validar(parametro){
     }
 }
 
+//Forma para dar formato a cookie e imprimirla debajo del formulario en el div destinado.
+var intentosCookie = 0;
+//Función para agilizar código
+function aumentarCookie(){
+    intentosCookie++;
+    var cookie = document.cookie = "Intentos = "+intentosCookie;
+    document.querySelector("#intentos").innerHTML = cookie;
+}
+
 //Cuando se envia el formulario comprobaremos
 formulario.onsubmit = function (){
     if (control || provincia.value == 0) {
         alert ("Cuidado tiene campos incorrectos o vacios en el formulario");
+        aumentarCookie();
         return false;
     } else {
         window.confirm("¿Seguro que desea enviar el formulario?");
+        aumentarCookie();
+        return false;
     }
 }
