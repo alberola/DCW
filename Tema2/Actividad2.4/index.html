@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejercicios con Fechas</h1>
+        <div class="caja">
+            <h3>EJERCICIO: u3e1_fincurso</h3>
+            <p id="finCurso"></p>
+            <button class="button-74" onclick="finCurso()">Resolver</button>
+        </div>
+        <hr color="#372301">
+        <div class="caja">
+            <h3>EJERCICIO: u3e2_domingos</h3>
+            <p id="domingos"></p>
+            <button class="button-74" onclick="domingos()">Resolver</button>
+        </div>
+        <hr color="#372301">
+        <div class="caja">
+            <h3>EJERCICIO: u3e3_formatofechas</h3>
+            <p id="formatoFechas"></p>
+            <button class="button-74" onclick="formatoFechas()">Resolver</button>
+        </div>
+        <hr color="#372301">
+        <div onload="formatoHoras()" class="caja">
+            <h3>EJERCICIO: u3e4_formatohoras</h3>
+            <input type="radio" name="opcion" value="0" id="opcion">Detallado <br>
+            <input type="radio" name="opcion" value="1" id="opcion1">AM <br>
+            <input type="radio" name="opcion" value="2" id="opcion2">PM <br>
+            <div class="button-74" id="texto"><p id="formatoHoras"></p></div> 
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>

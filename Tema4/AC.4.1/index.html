@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body onload="select(), selectInverso(), numeroPaises()">
+    <h1 class="display-5 text-center m-4">EJERCICIO: u4e1_arrays</h1>
+    <div class="container-fluid align-items-center justify-content-center">
+        <div class="text-center">
+            <h5 id="numPaises" class="m-4"></h5>
+            <select name="paises" id="listaPaises" class="form-select-sm">
+                <option value="inicio" selected disabled>Lista de paises</option>
+            </select>
+            <select name="paisesInversa" id="listaPaisesInversa" class="form-select-sm">
+                <option value="inicio" selected disabled>Lista de paises Inversa</option>
+            </select>
+            <h5 class="m-3 mt-4">Introduce un país para añadirlo al principio:</h5>
+            <input type="text" id="anadirPais" autocomplete="off" class="form-control-sm  border-opacity-25"><button onclick="agregarElemento()" class=" btn btn-success btn-outline-dark m-4">Insertar</button>
+            <p id="errorTexto"></p>
+            <h5>Introduce un país para añadirlo al final:</h5>
+            <input type="text" id="anadirPaisFinal" autocomplete="off"class="form-control-sm  border-opacity-25 "><button onclick="agregarElementoFinal()" class=" btn btn-success btn-outline-dark m-4">Insertar</button>
+            <p id="errorTextoFinal"></p>
+            <button onclick="borrarElemento()" class="btn btn-danger btn-outline-dark m-2" id="borrar">Borrar 1º Elemento</button>
+            <button onclick="borrarUltimoElemento()" class="btn btn-danger btn-outline-dark" id="borrarUltimo">Borrar Último Elemento</button>
+            <p id="borradoTexto"></p>
+            <h5>Introduce un pais o una posición</h5>
+            <input type="text" id="posicionArray" class="form-control-sm  border-opacity-25 m-4">
+            <p id="datosArray"></p>
+            <h5>Introduce un intervalo para mostrar en la lista</h5>
+            <input type="text" id="intervalo" class="form-control-sm  border-opacity-25 m-4 ">
+            <p id="intervaloArray"></p>
+        </div>
+    </div>
+    <div class="container-fluid align-content-center">
+        <div class="row p-4 bg-dark text-white justify-content-between">
+            <div class="col-xs-12 col-md-6 col-lg-3 text-center">  
+                <p class="h3">columna</p>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-3 text-center">  
+                <p class="h5 mb-3">Proyectos</p>
+                <div class="mb-2">
+                    <a href="#" class="text-secondary text-decoration-none">JavaScript</a>
+                </div>
+                <div class="mb-">
+                    <a href="#" class="text-secondary text-decoration-none">PHP</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3 text-center">  
+                <p class="h5 mb-3">Contacto</p>
+                <div class="mb-3" >
+                    <a href="https://www.instagram.com/aleeex7_/" target="_blank"><img src="instagram.png"width="40px"></a>
+                </div>
+                <div class="mb-3">
+                    <a href="https://www.linkedin.com/in/alejandro-alberola-gopar-652284238/" target="_blank"><img src="linkedin.png" width="40px"></a>
+                </div>
+                <div class="">
+                    <a href="https://twitter.com/Aleeex7_" target="_blank"><img src="twitter.png"width="40px"></a>
+                </div>
+            </div>
+            <div class="col-xs-12 pt-3">
+                <p class="text-white text-center">Copyright © Alejandro Alberola 2022. All rights reserved</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="arrays.js"></script>
+</body>
+</html>
