@@ -1,0 +1,28 @@
+body{
+   background-color: aliceblue;
+   background-image: url("../img/fondo.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+hr{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#caja{
+    height: 600px;
+}
+#bandera{
+    padding-top: 125px;
+}
+label:hover{
+    transform: scale(1.3);
+    transition: all 0.9s;
+    -webkit-transition: all 0.9s;
+    -moz-transition: all 0.9s;
+    -ms-transition: all 0.9s;
+    -o-transition: all 0.9s;
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+}
