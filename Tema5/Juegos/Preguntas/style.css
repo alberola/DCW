@@ -8,21 +8,99 @@ hr{
     margin-left: 10%;
     margin-right: 10%;
 }
-#caja{
+#cajaJuego{
     height: 600px;
 }
 #bandera{
     padding-top: 125px;
 }
-label:hover{
-    transform: scale(1.3);
-    transition: all 0.9s;
-    -webkit-transition: all 0.9s;
-    -moz-transition: all 0.9s;
-    -ms-transition: all 0.9s;
-    -o-transition: all 0.9s;
-    -webkit-transform: scale(1.3);
-    -moz-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    -o-transform: scale(1.3);
+
+#cajaJuego > img{
+    max-width: 200px;
+    width: 100%;
+}
+
+.opciones {
+    margin-top: 40px;
+}
+
+#cajaInicio {
+    display: block;
+    height: 600px;
+}
+#contenido {
+    padding-top: 15%;
+}
+#contenidoFin {
+    padding-top: 15%;
+}
+#cajaJuego {
+    display: none;
+    height: 600px;
+}
+#pantallaFin{
+    display: none;
+    height: 600px;
+}
+
+/* CSS */
+.letra .button-55{
+    border-right: none;
+}
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.opcion .nombreAcertada{
+    background-color: yellowgreen;
+    color: #fff;
+}
+.opcion .letraAcertada{
+    background-color: yellowgreen;
+    color: #fff ;
+}
+/* clases que se aplicaran cuando se equivoque en la opcion elegida */
+.opcion .nombreNoAcertada{
+    background-color: darkred;
+    color: #fff;
+}
+.opcion .letraNoAcertada{
+    background-color: darkred;
+    color: #fff;
 }
