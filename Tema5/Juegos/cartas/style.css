@@ -1,0 +1,9 @@
+.col-3{
+    padding-top: 10%;
+    height: 300px;
+    border: 1px solid black;
+}
+hr {
+    margin-left: 10%;
+    margin-right: 10%;
+}

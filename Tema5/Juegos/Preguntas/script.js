@@ -48,13 +48,13 @@ function cargarBandera(){
 
 function limpiarOpciones(){
     //Limpiamos las opciones y le damos parámetros de bootstrap a cada opcion para que se ajusten a nuestras necesidades sin utilizar css
-    document.getElementById("n0").className = "nombre button-55 rounded mb-5";
-    document.getElementById("n1").className = "nombre button-55 rounded mb-5";
-    document.getElementById("n2").className = "nombre button-55 rounded mb-5";
+    document.getElementById("n0").className = "nombre button-55 bg-dark text-white rounded mb-5";
+    document.getElementById("n1").className = "nombre button-55 bg-dark text-white rounded mb-5";
+    document.getElementById("n2").className = "nombre button-55 bg-dark text-white rounded mb-5";
 
-    document.getElementById("l0").className = "letra button-55 rounded mb-5";
-    document.getElementById("l1").className = "letra button-55 rounded mb-5";
-    document.getElementById("l2").className = "letra button-55 rounded mb-5";
+    document.getElementById("l0").className = "letra button-55 bg-dark text-white rounded mb-5";
+    document.getElementById("l1").className = "letra button-55 bg-dark text-white rounded mb-5";
+    document.getElementById("l2").className = "letra button-55 bg-dark text-white rounded mb-5";
 }
 
 function comprobarRespuesta(opElegida){
