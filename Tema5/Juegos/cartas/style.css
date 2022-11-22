@@ -5,3 +5,6 @@ hr {
     margin-left: 10%;
     margin-right: 10%;
 }
+img{
+    transition: all 1;
+}
