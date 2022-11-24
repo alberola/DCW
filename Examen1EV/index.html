@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Examen Alejandro Alberola Gopar</h1>
+    <form action="" id="formulario" style="text-align: center;">
+        <label for="name">Fecha</label>
+        <input type="date" id="fecha">
+        <br><br>
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario">
+        <br><br>
+        <label for="telefono">Telefono</label>
+        <input type="text" id="telefono">
+        <br><br>
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo">
+        <br><br>
+        <select name="incidencia" id="incidencia">
+            <option value="X" selected disabled>Tipo de Incidencia</option>
+            <option value="hardware">Hardware</option>
+            <option value="software">Software</option>
+            <option value="solicitud de nuevos servicios">Solicitud de nuevos servicios</option>
+            <option value="Resolucion de dudas">Resolución de dudas</option>
+        </select>
+        <br><br>
+        <input type="radio" name="prioridad" value="baja" > Baja
+        <input type="radio" name="prioridad" value="media" > Media
+        <input type="radio" name="prioridad" value="urgente" > Urgente
+        <br><br>
+        <label for="observaciones">Observaciones</label><br>
+        <textarea name="observaciones" id="observaciones" cols="30" rows="10"></textarea>
+        <br><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <br><br>
+    <div id="tabla"></div>
+    <script src="incidencia.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
