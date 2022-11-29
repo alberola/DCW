@@ -104,7 +104,13 @@ function patrones(elemento){
             break;
         
         case "numCuenta":
-
+            if (!numCuentaTest.test(valor)){
+                controlador = false;
+                numCuenta.className = ("form-control border-danger");
+            } else {
+                controlador = true;
+                numCuenta.className = ("form-control border-success");
+            }
             break;
     }
 }
