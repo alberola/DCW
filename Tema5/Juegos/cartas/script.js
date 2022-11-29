@@ -46,14 +46,19 @@ function comprobar(imagen)  {
             }
         //En caso contrario voltearemos de nuevo las cartas
         } else {
-            auxSrc.classList.remove("cambio");
+
+            //TODAS LAS FUNCIONES DECLARADAS AQUÍ SON PARA HACER FUNCIONAR LOS SETTIMEOUTS
+
+            function removerCambio(){auxSrc.classList.remove("cambio");}
+            setTimeout(removerCambio, 1200);
             //Creamos funcion para que funciones el timeout
             function meterFondo() {auxSrc.setAttribute("src","img/back.png");}
-            setTimeout(meterFondo , 1000);
-            selector[valor].classList.remove("cambio");
+            setTimeout(meterFondo , 1300);
+            function removerCambio2(){selector[valor].classList.remove("cambio");}
+            setTimeout(removerCambio2, 1200);
             //Creamos funcion para que funciones el timeout
             function meterFondo2() {selector[valor].setAttribute("src","img/back.png");}
-            setTimeout(meterFondo2, 1000);
+            setTimeout(meterFondo2, 1300);
             //Captura de errores
             contadorErrores++;
             //Al no encontrar coincidencia en ambas cartas meteremos los eventos de escucha de nuevo
@@ -61,7 +66,8 @@ function comprobar(imagen)  {
             selector[valor].addEventListener('click', ayudaComprobar);
             //Por ultimo reiniciaremos el valor de auxSrc que se ejecute (metemos un poco mas de tiempo que los cambios de imagen para que no de conflicto)
             function resetearAux(){ auxSrc = 0;}
-            setTimeout(resetearAux, 1200);
+            setTimeout(resetearAux, 1500);
+            
         }
     }
 }
