@@ -4,7 +4,11 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+#cajaEntera{
+    margin-top: 8%;
+}
 hr{
+
     margin-left: 10%;
     margin-right: 10%;
 }
