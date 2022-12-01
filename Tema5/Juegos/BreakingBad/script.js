@@ -104,13 +104,17 @@ function patrones(elemento){
             break;
         
         case "numCuenta":
-            if (!numCuentaTest.test(valor)){
-                controlador = false;
-                numCuenta.className = ("form-control border-danger");
-            } else {
-                controlador = true;
-                numCuenta.className = ("form-control border-success");
-            }
+            comprobarNumCuenta(valor);
             break;
     }
+}
+
+function comprobarNumCuenta(valor){
+    //Separamos la cadena de num cuenta en varias partes.
+    let comprobador = valor.split("-");
+    let auxSum = "";
+    for (let i = 0; i < comprobador[0].length; i++) {
+        auxSum += comprobador[0][i];
+    }
+    console.log(auxSum);
 }
