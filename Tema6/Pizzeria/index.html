@@ -21,13 +21,11 @@
         font-size: 3rem;
     }
     span{
-        font-family: 'lavenda';
-        font-size: 2rem;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
     }
-    body{
-        background-color: cornsilk;
+    .btn-primary{
+        margin-right: 15px;
     }
-
 </style>
 <body>
     <p class="text-center m-4 h4">Pizzeria Pizzaluna</p>
@@ -35,31 +33,36 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-3"></div>
-                <div class="col-3 text-center">
-                    <form action="" id="formulario">
-                            <h6>Toppings</h6><br>
-                            <label><input type="checkbox" class="toppings" value="sausage"> <span>Sausage</span></label><br><br>
-                            <label><input type="checkbox" class="toppings" value="pepperoni"> <span>Pepperoni</span></label><br><br>
-                            <label><input type="checkbox" class="toppings" value="ham"> <span>Ham</span></label><br><br>
-                            <label><input type="checkbox" class="toppings" value="greenpeppers"> <span>Green Peppers</span></label><br><br>
-                            <label><input type="checkbox" class="toppings" value="mushrooms"> <span>Mushrooms</span></label><br><br>
-                            <label><input type="checkbox" class="toppings" value="onions"> <span>Onions</span></label><br><br>
-                            <label><input type="checkbox" class="toppings" value="pineapple"> <span>Pineapple</span></label><br><br>
-
+                <div class="col-12 col-md-3 text-center">
+                    <h6>Toppings</h6><br>
+                    <button class="btn btn-primary" value="Sausage" id="s">+</button><span>Sausage</span><br><br>
+                    <button class="btn btn-primary" value="Pepperoni" id="pep">+</button><span>Pepperoni</span><br><br>
+                    <button class="btn btn-primary" value="Ham" id="h">+</button><span>Ham</span><br><br>
+                    <button class="btn btn-primary" value="Green Peppers" id="g">+</button><span>Green Peppers</span><br><br>
+                    <button class="btn btn-primary" value="Mushrooms" id="m">+</button><span>Mushrooms</span><br><br>
+                    <button class="btn btn-primary" value="Onions" id="o">+</button><span>Onions</span><br><br>
+                    <button class="btn btn-primary" value="Pineapple" id="p">+</button><span>Pineapple</span><br><br>
                 </div>
-                <div class="col-3 text-center">
-                            <h6>Crust</h6><br>
-                            <label><input type="radio" name="crust" value="regular"><span>Regular</span></label><br><br>
-                            <label><input type="radio" name="crust" value="deepdish"><span>Deep Dish</span></label><br><br>
-                            <label><input type="radio" name="crust" value="thin"><span>Thin</span></label>
+                <div class="col-12 col-md-3 text-center">
+                    <h6>Crust</h6><br>
+                    <button class="btn btn-primary" id="crust" value="Regular">+</button><span>Regular</span><br><br>
+                    <button class="btn btn-primary" id="crust" value="Deep Dish">+</button><span>Deep Dish</span><br><br>
+                    <button class="btn btn-primary" id="crust" value="Thin">+</button><span>Thin</span>
                 </div>
-                <div class="offset-5 col-3 tex-center">
-                    <br>
-                    <input type="submit" value="Prep Pizza" class="btn btn-dark">
-                </div>
-                </form>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class=" offset-md-4 col-12 col-md-4">
+                <h2>Cart</h2>
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <button id="boton-vaciar" class="btn btn-danger">Clear</button>
+                <button class="btn btn-success" id="boton-pdf">Order</button>
+            </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="prepPizza.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
