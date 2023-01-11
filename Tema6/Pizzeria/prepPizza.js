@@ -37,7 +37,7 @@ pdfCrear.addEventListener('click', () => {
         }
     });
     doc.text(20, y, `Crust: `);
-    doc.text(20, y+10, auxVar);
+    doc.text(20, y+10,  `- ${auxVar}`);
     doc.save('Order.pdf');
   }
 });
