@@ -10,6 +10,7 @@ var objeto;
 document.querySelector('#clearCanvas').addEventListener("click", function clearCanvas() {
     document.querySelector('.elementosCanvas').innerHTML = "";
     cart = [];
+    updateCart();
 })
 
 //Function to obtain idDrink (his value)
@@ -19,6 +20,7 @@ function obtainId(idDrink){
     // }
     cart.push(idDrink.id);
     document.querySelector('.elementosCanvas').innerHTML += "<div class='my-1 d-flex justify-content-between'><li class='list-group-item rounded w-100' id='elemento"+idDrink.id+"'>"+ document.getElementById('nombre'+idDrink.id).innerText + "</li><button class='btn btn-danger mx-2 p-2' value="+idDrink.id+" onclick='deleteElementCanvas(this)'>-</button></div>";
+    updateCart();
 }
     //We call the api and if the data is correct we type the values
 
@@ -55,6 +57,8 @@ function deleteElementCanvas (elementCanvas){
     document.getElementById("elemento"+elementCanvas.value).remove();
     //At the end we remove the element as well
     elementCanvas.remove();
+    //Update the cart html
+    updateCart ();
 
 }
 //Function to delete Elements already in cart
@@ -63,5 +67,39 @@ function deleteFromCart (elementCart) {
     cart.splice(cart.indexOf(elementCart.value), 1);
 }
 
+//If we insert an element in the cart we have to increment the num of elements in the page
+function updateCart () {
+    let cartNum = document.querySelector('#numDrinks');
+    console.log(cart.length);
+    if (cart.length == 0) {
+        console.log('caso negativo');
+        cartNum.innerHTML = '';
+    } else {
+        console.log('caso positivo');
+        cartNum.innerHTML = cart.length;
+    }
+}
 
+//Order button to print PDF
+    var pdfCreate = document.querySelector('#pdfButton');
+    pdfCreate.addEventListener('click', () => {
+        //we have to check if the cart is empty or not
+        if (cart.length == 0){
+          Swal.fire({
+              text: 'Necesitas seleccionar al menos 1 bebida.',
+              icon: 'error',
+              confirmButtonText: 'Aceptar',
+              confirmButtonColor: 'black'
+          })
+        } else {
+          let doc = new jsPDF();
+          doc.text(20, 20, 'Cocteles');
+          let y = 30;
+          cart.forEach(elemento => {
+            doc.text(20, y, document.getElementById('nombre'+elemento).innerText);
+            y += 10;
+          });
+          doc.save('Pedido.pdf');
+        }
+      });
 
