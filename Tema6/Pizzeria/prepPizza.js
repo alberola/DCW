@@ -1,6 +1,6 @@
 
 //Variables auxiliares
-const toppingsList = document.querySelectorAll('.btn-primary');
+const toppingsList = document.querySelectorAll('.btn-light');
 const crustList = document.querySelectorAll('#crust');
 const cartList = document.querySelector('#carrito');
 const total = document.querySelector('#total');
@@ -20,7 +20,8 @@ pdfCrear.addEventListener('click', () => {
     Swal.fire({
         text: 'You must select the crust and 1 ingredient at least.',
         icon: 'error',
-        confirmButtonText: 'Confirm'
+        confirmButtonText: 'Confirm',
+        confirmButtonColor: 'black'
     })
   } else {
     let doc = new jsPDF();

@@ -8,6 +8,12 @@
     <title>Pizzeria</title>
 </head>
 <style>
+    body {
+        background-image: url('img/backgroundImage.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+    }
     @font-face {
         font-family: lavenda;
         src: url("../fonts/Lavenda_Demo.otf");
@@ -15,44 +21,58 @@
     .h4{
         font-family: 'lavenda';
         font-size: 9rem;
+        text-shadow: 1px 1px black;
     }
     h6{
         font-family: 'lavenda';
         font-size: 3rem;
+        text-shadow: 1px 1px black;
     }
     span{
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+        text-shadow: 1px 1px black;  
     }
-    .btn-primary{
+    .btn{
         margin-right: 15px;
+    }
+    @media (max-width: 576px) {
+        .h4{
+            font-family: 'lavenda';
+            font-size: 7rem;
+            text-shadow: 1px 1px black;
+        }
+    }
+    button.swal2-confirm.swal2-styled.swal2-default-outline {
+        -webkit-box-shadow: none;
+        box-shadow: none;
     }
 </style>
 <body>
-    <p class="text-center m-4 h4">Pizzeria Pizzaluna</p>
+    <h4 class="text-center m-4 h4 text-shadow">Pizzeria Pizzaluna</h4>
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-3"></div>
-                <div class="col-12 col-md-3 text-center">
+            <div class="col-6"></div>
+                <div class="col-12 col-md-3 text-center text-md-start">
                     <h6>Toppings</h6><br>
-                    <button class="btn btn-primary" value="Sausage" id="s">+</button><span>Sausage</span><br><br>
-                    <button class="btn btn-primary" value="Pepperoni" id="pep">+</button><span>Pepperoni</span><br><br>
-                    <button class="btn btn-primary" value="Ham" id="h">+</button><span>Ham</span><br><br>
-                    <button class="btn btn-primary" value="Green Peppers" id="g">+</button><span>Green Peppers</span><br><br>
-                    <button class="btn btn-primary" value="Mushrooms" id="m">+</button><span>Mushrooms</span><br><br>
-                    <button class="btn btn-primary" value="Onions" id="o">+</button><span>Onions</span><br><br>
-                    <button class="btn btn-primary" value="Pineapple" id="p">+</button><span>Pineapple</span><br><br>
+                    <button class="btn btn-light" value="Sausage" id="s">+</button><span>Sausage</span><br><br>
+                    <button class="btn btn-light" value="Pepperoni" id="pep">+</button><span>Pepperoni</span><br><br>
+                    <button class="btn btn-light" value="Ham" id="h">+</button><span>Ham</span><br><br>
+                    <button class="btn btn-light" value="Green Peppers" id="g">+</button><span>Green Peppers</span><br><br>
+                    <button class="btn btn-light" value="Mushrooms" id="m">+</button><span>Mushrooms</span><br><br>
+                    <button class="btn btn-light" value="Onions" id="o">+</button><span>Onions</span><br><br>
+                    <button class="btn btn-light" value="Pineapple" id="p">+</button><span>Pineapple</span><br><br>
                 </div>
-                <div class="col-12 col-md-3 text-center">
+                <div class="col-12 col-md-3 text-center text-md-start">
                     <h6>Crust</h6><br>
-                    <button class="btn btn-primary" id="crust" value="Regular">+</button><span>Regular</span><br><br>
-                    <button class="btn btn-primary" id="crust" value="Deep Dish">+</button><span>Deep Dish</span><br><br>
-                    <button class="btn btn-primary" id="crust" value="Thin">+</button><span>Thin</span>
+                    <button class="btn btn-light" id="crust" value="Regular">+</button><span>Regular</span><br><br>
+                    <button class="btn btn-light" id="crust" value="Deep Dish">+</button><span>Deep Dish</span><br><br>
+                    <button class="btn btn-light" id="crust" value="Thin">+</button><span>Thin</span>
                 </div>
         </div>
         <br><br>
         <div class="row">
-            <div class=" offset-md-4 col-12 col-md-4">
+            <div class=" offset-md-7 col-12 col-md-4 text-center text-md-start">
                 <h2>Cart</h2>
                 <ul id="carrito" class="list-group"></ul>
                 <hr>
@@ -60,6 +80,10 @@
                 <button class="btn btn-success" id="boton-pdf">Order</button>
             </div>
         </div>
+    </div>
+    <div class="text-center p-3 text-light">
+        © 2023 Copyright:
+        <a class="text-secondary" href="https://github.com/alberola" target="_blank">Alejandro Alberola</a>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
