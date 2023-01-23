@@ -27,7 +27,7 @@ function porteroDiscoteca (insertedAge) {
     // const insertedAge = document.querySelector('#inputAge').value;
     return new Promise((resolve, reject) => {
         if (!isNaN(insertedAge)) {
-            if (insertedAge > 18) {
+            if (insertedAge >= 18) {
                 resolve("Puede Pasar tronco! ");
             } else {
                 reject('No puedes pasar tronco!');
