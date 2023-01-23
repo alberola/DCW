@@ -101,5 +101,5 @@ function updateCart () {
           });
           doc.save('Pedido.pdf');
         }
-      });
+    });
 
