@@ -1,3 +1,8 @@
+@font-face {
+    font-family: cute;
+    src: url("fonts/Cuteubble.ttf");
+}
+
 body{
     background-image:url('../img/fondo.webp');
     background-size: cover;
@@ -5,27 +10,101 @@ body{
     background-attachment: fixed;
     color: white;
 }
+h1{
+    font-family: cute;
+}
+
+/*FONT ENTRANCES*/
+.tracking-in-expand {
+	        -webkit-animation: tracking-in-expand 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+@keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 h1, span{
     text-shadow: 1px 1px black;
 }
-.contenido{
-    height: 650px;
-}
-.imagenes{
+.row{
     padding-top: 100px;
 }
-img:hover{
+.img{
+    margin-right: 50px;
+}
+
+/*ANIMATIONS FOR IMGS ENTRANCES */
+.bounce-in-top{ animation:bounce-in-top 1.5s both; -webkit-animation:bounce-in-top 1.5s both; }
+@keyframes bounce-in-top{
+    0%{
+        transform:translateY(-500px);animation-timing-function:ease-in;opacity:0
+    }
+    38%{
+        transform:translateY(0);animation-timing-function:ease-out;opacity:1
+    }
+    55%{
+        transform:translateY(-65px);animation-timing-function:ease-in
+    }
+    72%{
+        transform:translateY(0);animation-timing-function:ease-out
+    }
+    81%{
+        transform:translateY(-28px);animation-timing-function:ease-in
+    }
+    90%{
+        transform:translateY(0);animation-timing-function:ease-out
+    }
+    95%{
+        transform:translateY(-8px);animation-timing-function:ease-in
+    }
+    100%{
+        transform:translateY(0);animation-timing-function:ease-out
+    }
+}
+
+.rotation:hover{
+    cursor: pointer;
     transform: rotate(-15deg);
     -webkit-transform: rotate(-15deg);
     -moz-transform: rotate(-15deg);
-    -o-transform: rotate(-15deg);
     -ms-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
 }
 
+/* ANIMATION FOR OUTPUTS */
 
+.change {
+    animation: hideMe 2s forwards;
+    -webkit-animation: hideMe 2s forwards;
+}
+@keyframes hideMe {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;;
+    }
+}
 
-/*ANIMATIONS FOR IMGS ENTRANCES */
-.bounce-in-top{animation:bounce-in-top 1.5s both}
-@keyframes bounce-in-top{0%{transform:translateY(-500px);animation-timing-function:ease-in;opacity:0}38%{transform:translateY(0);animation-timing-function:ease-out;opacity:1}55%{transform:translateY(-65px);animation-timing-function:ease-in}72%{transform:translateY(0);animation-timing-function:ease-out}81%{transform:translateY(-28px);animation-timing-function:ease-in}90%{transform:translateY(0);animation-timing-function:ease-out}95%{transform:translateY(-8px);animation-timing-function:ease-in}100%{transform:translateY(0);animation-timing-function:ease-out}}
-
-
+/*MEDIA*/
+@media (max-width: 576px) {
+    .row{
+        padding-top: 20px;
+    }
+    .rotacion:hover{
+        cursor: pointer;
+        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+        -moz-transform: rotate(-15deg);
+        -ms-transform: rotate(-15deg);
+        -o-transform: rotate(-15deg);
+    }
+}
