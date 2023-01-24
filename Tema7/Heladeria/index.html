@@ -10,27 +10,53 @@
     <title>Dulce Tropic.SL</title>
 </head>
 <body>
+    <!-- HEADER -->
     <h1 class="text-center m-5 display-1 tracking-in-expand">Heladeria Dulce Tropic</h2>
+    <!-- BODY -->
     <div class="container">
         <div class="row my-5">
-            <div class="d-flex flex-column flex-md-row fruits">
+            <!-- FIRST CONTAINER  -->
+            <div class="d-flex justify-content-center flex-column flex-md-row fruits">
                 <div class="col-12 col-md-3">
-                    <img src="img/fresa.png" alt="fresa"  class="bounce-in-top img img-fluid" id="fresa">
+                    <img src="img/fresa.png" alt="fresa"  class="bounce-in-top img img-fluid" id="Fresa">
                 </div>
                 <div class="col-12 col-md-3">
-                    <img src="img/uva.webp" alt="uva"  class="bounce-in-top img img-fluid" id="uva">
+                    <img src="img/uva.webp" alt="uva"  class="bounce-in-top img img-fluid" id="Uva">
                 </div>
                 <div class="col-12 col-md-3">
-                    <img src="img/platano.webp" alt="platano"  class="bounce-in-top img img-fluid" id="platano">
+                    <img src="img/platano.webp" alt="platano"  class="bounce-in-top img img-fluid" id="Platano">
                 </div>
                 <div class="col-12 col-md-3">
-                    <img src="img/manzan.png" alt="manzana"  class="bounce-in-top img img-fluid" id="manzana">
+                    <img src="img/manzan.png" alt="manzana"  class="bounce-in-top img img-fluid" id="Manzana">
                 </div>
             </div>
-            <div class="d-flex flex-column flex-md-row">
-                
+            <!-- SECOND CONTAINER  -->
+            <div class="d-none justify-content-center flex-column flex-md-row recipient">
+                <div class="col-12 col-md-3">
+                    <img src="img/cucurucho.webp" alt="cucurucho"  class="bounce-in-top img img-fluid" id="cono">
+                </div>
+                <div class="col-12 col-md-3">
+                    <img src="img/vaso.png" alt="vaso"  class="bounce-in-top img img-fluid" id="vaso">
+                </div>
+                <div class="col-12 col-md-3">
+                    <img src="img/palo.png" alt="palo"  class="bounce-in-top img img-fluid" id="palo">
+                </div>
+            </div>
+            <!-- THIRD CONTAINER  -->
+            <div class="d-none justify-content-center flex-column flex-md-row topings">
+                <div class="col-12 col-md-3">
+                    <img src="img/chocolate.webp" alt="chocolate"  class="bounce-in-top mx-5 img img-fluid" id="Chocolate">
+                </div>
+                <div class="col-12 col-md-3">
+                    <img src="img/peanut.png" alt="cacahuete"  class="bounce-in-top mx-5 img img-fluid" id="Cacahuete">
+                </div>
+            </div>
+            <!-- LAST CONTAINER  -->
+            <div class="d-none text-center justify-content-center flex-column final">
+                <h1 class="final-text text-center">Cocinando su helado</h1>
             </div>
         </div>
+        <!-- PROGRESS BAR  -->
         <div class="row my-5">
             <div class="progress offset-2 col-8" style="height: 20px;" role="progressbar">
                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 0%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div><img src="img/helado.gif" alt="gift">
@@ -38,10 +64,12 @@
             <div class="col-2"></div>
         </div>
     </div>
+    <!-- FOOTER -->
     <div class="text-center p-3">
         <span>© 2023 Copyright:</span>
         <a class="text-dark" href="https://github.com/alberola" target="_blank">Alejandro Alberola</a>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
     <script src="js/heladeria.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
