@@ -6,19 +6,20 @@ var respuesta = document.querySelector('#respuesta');
 var cart = [];
 var objeto;
 
+
 //Event Listener to clear the offCanvas cart
 document.querySelector('#clearCanvas').addEventListener("click", function clearCanvas() {
     document.querySelector('.elementosCanvas').innerHTML = "";
     cart = [];
+    //We update the cookie value
+    setCookie('cookieCart', JSON.stringify(cart), 9999);
     updateCart();
 })
 
-//Function to obtain idDrink (his value)
+//Function to obtain idDrink (his value) and update the cart, canvas and the cookie
 function obtainId(idDrink){
-    // if () {
-
-    // }
     cart.push(idDrink.id);
+    setCookie('cookieCart', JSON.stringify(cart), 9999);
     document.querySelector('.elementosCanvas').innerHTML += "<div class='my-1 d-flex justify-content-between'><li class='list-group-item rounded w-100' id='elemento"+idDrink.id+"'>"+ document.getElementById('nombre'+idDrink.id).innerText + "</li><button class='btn btn-danger mx-2 p-2' value="+idDrink.id+" onclick='deleteElementCanvas(this)'>-</button></div>";
     updateCart();
 }
@@ -46,6 +47,15 @@ function obtainId(idDrink){
             });
             
         }
+        //we check if the cookie have any preset values
+        if (getCookie('cookieCart') !== "") {
+            //We update the cart value
+            cart = JSON.parse(getCookie('cookieCart'));
+            cart.forEach(element => {
+                document.querySelector('.elementosCanvas').innerHTML += "<div class='my-1 d-flex justify-content-between'><li class='list-group-item rounded w-100' id='elemento"+element+"'>"+ document.getElementById('nombre'+element).innerText + "</li><button class='btn btn-danger mx-2 p-2' value="+element+" onclick='deleteElementCanvas(this)'>-</button></div>";
+                updateCart();
+            });
+        } 
     })
 
 
@@ -65,6 +75,8 @@ function deleteElementCanvas (elementCanvas){
 function deleteFromCart (elementCart) {
     //We select the index of the element we want to delete and we do it
     cart.splice(cart.indexOf(elementCart.value), 1);
+    //We update the cookieValue
+    setCookie('cookieCart', JSON.stringify(cart), 9999);
 }
 
 //If we insert an element in the cart we have to increment the num of elements in the page
@@ -103,3 +115,26 @@ function updateCart () {
         }
     });
 
+// set Value to the cookie
+function setCookie(name, value, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+// get the Cookie values
+function getCookie(name) {
+    var name = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
