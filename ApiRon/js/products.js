@@ -36,8 +36,8 @@ function obtainId(idDrink){
             data.drinks.forEach(element => {
                 respuesta.innerHTML += 
                 "<div class='col my-4'>"+
-                    "<div class='card' style='width: 18rem;' id="+element.idDrink+">"+
-                        "<img src="+element.strDrinkThumb+" class='card-img-top' alt='...'>"+
+                    "<div class='card ' style='width: 18rem;' id="+element.idDrink+">"+
+                        "<img src="+element.strDrinkThumb+" class='card-img-top rounded' alt='...'>"+
                         "<div class='card-body'>"+
                             "<h5 id=nombre"+element.idDrink+" class='card-title m-b5'>"+element.strDrink+"</h5>"+
                             "<a href='#' class='btn btn-dark boton' id="+element.idDrink+" data-bs-toggle='offcanvas' data-bs-target='#offcanvasWithBothOptions' aria-controls='offcanvasWithBothOptions' onclick=obtainId(this)>Añadir al Carrito</a>"+
