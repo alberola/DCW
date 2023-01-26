@@ -63,13 +63,12 @@ function showHidePanels(){
         setTimeout(() => {
             topings.classList.remove('d-flex');
             topings.classList.add('d-none');
-            final.classList.remove('d-none');
-            final.classList.add('d-flex');
+            final.className = 'd-flex text-center justify-content-center flex-column aling-items align-items-center final';
             //Creating dinamic elements to give special atributtes
             const div = final.appendChild(document.createElement('div'));
             div.className = 'col-12 col-md-3';
             const img = div.appendChild(document.createElement('img'));
-            img.className = 'text-center img-fluid';
+            img.className = 'bounce-in-top mx-5 img img-fluid';
             img.setAttribute('src', 'img/finalGift.gif');
             img.setAttribute('alt', 'Gift Generando Helado');
             progressVar.style.width = '100%';
