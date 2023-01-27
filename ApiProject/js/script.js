@@ -1,11 +1,5 @@
 
-//VARS TO CONNECT TO THE REQUESTED API
-const API_KEY = 'api_key=dda4633aacd800647ce023600f1aae38';
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
-
-
-getMovies(API_URL);
+getMovies('https://api.themoviedb.org/3/movie/popular?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1');
 
 function getMovies(url) {
     fetch(url)
