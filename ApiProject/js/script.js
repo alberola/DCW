@@ -6,10 +6,13 @@ var container = document.querySelector('#globalContainer');
 obtainGenresMovies('https://api.themoviedb.org/3/genre/movie/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
 obtainGenresTvSeries('https://api.themoviedb.org/3/genre/tv/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
 
-getMovies('https://api.themoviedb.org/3/movie/popular?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Popular');
-getMovies('https://api.themoviedb.org/3/trending/all/day?api_key=dda4633aacd800647ce023600f1aae38', 'Trending');
-getMovies('https://api.themoviedb.org/3/search/movie?api_key=dda4633aacd800647ce023600f1aae38&language=en-US&query=Animaci%C3%B3n&page=1&include_adult=false', 'Anime');
-getMovies('https://api.themoviedb.org/3/movie/upcoming?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Upcoming Movies');
+getMovies('https://api.themoviedb.org/3/movie/popular?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Populares');
+getMovies('https://api.themoviedb.org/3/trending/all/day?api_key=dda4633aacd800647ce023600f1aae38', 'Tendencia');
+getMovies('https://api.themoviedb.org/3/discover/tv?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1&with_genres=16', 'Anime');
+getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=10402', 'Musical');
+getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=27', 'Terror');
+getMovies('https://api.themoviedb.org/3/movie/upcoming?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Próximas Películas');
+getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=10749', 'Romance');
 
 //Function to obtain the list of movies-series
 function getMovies(url,tittle) {
@@ -43,7 +46,7 @@ function showMovies(value, tittle) {
     value = value.results;
     createRow(tittle);
     value.forEach(element => {
-        createImg(tittle,element.poster_path);
+        createImg(tittle,element.poster_path, element.id);
     });
 }
 
@@ -64,11 +67,14 @@ function createRow(tittle) {
 }
 
 //Function to introduce the elements img elements into the sections
-function createImg(tittle,imgRoute){
+function createImg(tittle,imgRoute,imgId){
     const createImg = document.createElement('img');
     createImg.src = 'https://image.tmdb.org/t/p/w500'+imgRoute;
     createImg.alt = 'IMG';
+    createImg.setAttribute('data-aos', 'zoom-in');
+    createImg.setAttribute('data-aos-duration','3000');
     createImg.style.width = '10%';
+    createImg.value = imgId;
     //Introducing the img into the section container
     document.getElementById(tittle).appendChild(createImg);
 }
