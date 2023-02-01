@@ -9,32 +9,30 @@
     <title>Peliculas</title>
 </head>
 <body class="bg-dark">
-    <h1 class="text-center m-5 text-danger">Películas</h1>
+    <h1 class="text-center m-5 text-info">Películas</h1>
 
     <div class="container-fluid" id="globalContainer">
     </div>
 
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
+    <!-- Modal -->
+    <div class="modal fade modal-xl" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Modal Header</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p>This is a large modal.</p>
+                <h1 id="modalTitle"></h1>
+                <p id="modalDescription"></p>
+                <h4 id="valoration"></h4>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>
+        </div>
     </div>
     <!-- FOOTER -->
     <div class="text-center text-white p-3 my-3">
         <span>© 2023 Copyright:</span>
-        <a class="text-danger" href="https://github.com/alberola" target="_blank">Alejandro Alberola</a>
+        <a class="text-info" href="https://github.com/alberola" target="_blank">Alejandro Alberola</a>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>

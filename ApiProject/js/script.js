@@ -75,15 +75,38 @@ function createImg(tittle,imgRoute,imgId){
     //createImg.setAttribute('data-aos-duration','3000');
     createImg.className = 'imgEvent';
     createImg.style.width = '10%';
-    createImg.value = imgId;
+    createImg.id = imgId;
     createImg.setAttribute('data-bs-toggle', 'modal');
     createImg.setAttribute('data-bs-target', '#myModal');
+    createImg.setAttribute('onclick', 'modalItems(this)');
     //Introducing the img into the section container
     document.getElementById(tittle).appendChild(createImg);
 
-    //Adding the event litener to get the info of a movie-series
-    createImg.addEventListener('click', function () {
-        console.log('funciona');
-    });
+
 }
 
+
+
+//Function to add modals interface calling the api for a specific film...
+function modalItems(movieId) {
+    let value = movieId.id;
+    //Create dinamic elements
+    const createVideo = document.createElement('video');
+
+
+    //Calling the api for the requested film
+    fetch('https://api.themoviedb.org/3/movie/'+value+'?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        document.querySelector('#modalTitle').innerHTML = data.title;
+        document.querySelector('#modalDescription').innerHTML = data.overview;
+        document.querySelector('#valoration').innerHTML = data.vote_average;
+    });
+    fetch('https://api.themoviedb.org/3/movie/'+value+'/videos?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.results);
+    });
+
+}

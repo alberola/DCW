@@ -6,3 +6,8 @@ img:hover{
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
 }
+#myModal{
+    opacity: 0.8;
+    background-color: #28242c;
+    color: #28242c;
+}
