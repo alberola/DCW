@@ -45,7 +45,7 @@ function obtainGenresTvSeries(url){
 function showMovies(value, tittle) {
     value = value.results;
     createRow(tittle);
-    value.forEach(element => {
+    value.map(element => {
         createImg(tittle,element.poster_path, element.id);
     });
 }
@@ -59,7 +59,7 @@ function createRow(tittle) {
     const createImgContainer = document.createElement('div');
     createImgContainer.className = 'col';
     createImgContainer.id = tittle;
-    createRow.className = 'row';
+    createRow.className = 'row ';
     //Introducing the elements into de global container
     container.appendChild(createH1);
     container.appendChild(createRow);
@@ -68,21 +68,22 @@ function createRow(tittle) {
 
 //Function to introduce the elements img elements into the sections
 function createImg(tittle,imgRoute,imgId){
+    //const createDivSlide = document.createElement('div');
+    //createDivSlide.className = 'swiper-slide';
     const createImg = document.createElement('img');
     createImg.src = 'https://image.tmdb.org/t/p/w500'+imgRoute;
     createImg.alt = 'IMG';
     //createImg.setAttribute('data-aos', 'zoom-in');
     //createImg.setAttribute('data-aos-duration','3000');
-    createImg.className = 'imgEvent';
-    createImg.style.width = '10%';
+    createImg.className = 'imgEvent p-1';
     createImg.id = imgId;
+    createImg.setAttribute('width','10%');
     createImg.setAttribute('data-bs-toggle', 'modal');
     createImg.setAttribute('data-bs-target', '#myModal');
     createImg.setAttribute('onclick', 'modalItems(this)');
     //Introducing the img into the section container
     document.getElementById(tittle).appendChild(createImg);
-
-
+    //createDivSlide.appendChild(createImg);
 }
 
 
@@ -90,9 +91,6 @@ function createImg(tittle,imgRoute,imgId){
 //Function to add modals interface calling the api for a specific film...
 function modalItems(movieId) {
     let value = movieId.id;
-    //Create dinamic elements
-    const createVideo = document.createElement('video');
-
 
     //Calling the api for the requested film
     fetch('https://api.themoviedb.org/3/movie/'+value+'?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES')
@@ -101,12 +99,20 @@ function modalItems(movieId) {
         console.log(data);
         document.querySelector('#modalTitle').innerHTML = data.title;
         document.querySelector('#modalDescription').innerHTML = data.overview;
-        document.querySelector('#valoration').innerHTML = data.vote_average;
+        document.querySelector('#valoration').innerHTML = 'Valoración: '+data.vote_average.toFixed(2);
     });
     fetch('https://api.themoviedb.org/3/movie/'+value+'/videos?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES')
     .then(response => response.json())
     .then(data => {
         console.log(data.results);
+        //Checking that is an trailer for the movie
+        if (data.results.length > 0) {
+            //If we have a trailer we are going to take the last video (it´s usually the oficial trailer)
+            let long = data.results.length -1 ;
+            //Setting the iframe attributes
+            document.querySelector('#iframeModal').src = 'https://www.youtube.com/embed/'+data.results[long].key;
+        } else {
+            //If we dont search a trailer we are going to put a img
+        }
     });
-
 }
