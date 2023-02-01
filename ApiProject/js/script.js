@@ -71,10 +71,19 @@ function createImg(tittle,imgRoute,imgId){
     const createImg = document.createElement('img');
     createImg.src = 'https://image.tmdb.org/t/p/w500'+imgRoute;
     createImg.alt = 'IMG';
-    createImg.setAttribute('data-aos', 'zoom-in');
-    createImg.setAttribute('data-aos-duration','3000');
+    //createImg.setAttribute('data-aos', 'zoom-in');
+    //createImg.setAttribute('data-aos-duration','3000');
+    createImg.className = 'imgEvent';
     createImg.style.width = '10%';
     createImg.value = imgId;
+    createImg.setAttribute('data-bs-toggle', 'modal');
+    createImg.setAttribute('data-bs-target', '#myModal');
     //Introducing the img into the section container
     document.getElementById(tittle).appendChild(createImg);
+
+    //Adding the event litener to get the info of a movie-series
+    createImg.addEventListener('click', function () {
+        console.log('funciona');
+    });
 }
+
