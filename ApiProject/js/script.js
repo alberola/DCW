@@ -7,14 +7,14 @@ obtainGenresMovies('https://api.themoviedb.org/3/genre/movie/list?api_key=dda463
 obtainGenresTvSeries('https://api.themoviedb.org/3/genre/tv/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
 
 getMovies('https://api.themoviedb.org/3/movie/popular?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Populares');
-getMovies('https://api.themoviedb.org/3/trending/all/day?api_key=dda4633aacd800647ce023600f1aae38', 'Tendencia');
+getMovies('https://api.themoviedb.org/3/trending/movie/day?api_key=dda4633aacd800647ce023600f1aae38', 'Tendencia');
 getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1&with_genres=16', 'Animación');
 getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=10402', 'Musical');
 getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=27', 'Terror');
 getMovies('https://api.themoviedb.org/3/movie/upcoming?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Próximas Películas');
 getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=10749', 'Romance');
 
-//Function to obtain the list of movies-series
+//Function to obtain the list of movies
 function getMovies(url,tittle) {
     fetch(url)
     .then(response => response.json())
@@ -52,6 +52,7 @@ function showMovies(value, tittle) {
 
 //Function to create the distinct sections tittle and containers of each section (popular, tendring, animes...)
 function createRow(tittle) {
+    //Creating the elements and setting the attributes
     const createH1 = document.createElement('h1');
     createH1.innerText = tittle;
     createH1.className = 'text-white';
@@ -68,8 +69,7 @@ function createRow(tittle) {
 
 //Function to introduce the elements img elements into the sections
 function createImg(tittle,imgRoute,imgId){
-    //const createDivSlide = document.createElement('div');
-    //createDivSlide.className = 'swiper-slide';
+
     const createImg = document.createElement('img');
     createImg.src = 'https://image.tmdb.org/t/p/w500'+imgRoute;
     createImg.alt = 'IMG';
@@ -83,7 +83,7 @@ function createImg(tittle,imgRoute,imgId){
     createImg.setAttribute('onclick', 'modalItems(this)');
     //Introducing the img into the section container
     document.getElementById(tittle).appendChild(createImg);
-    //createDivSlide.appendChild(createImg);
+
 }
 
 
@@ -115,8 +115,6 @@ function modalItems(movieId) {
         } else {
             //If we dont search a trailer we are going to put a generic video iframe
             updateIframeSrc('2YBtspm8j8M');
-            //WE WANT TO IMPLEMENET A CODE HERE TO EDIT THE MODAL STRUCTURE WHEN WE DONT FOUND A TRAILER-VIDEO
-
         }
     });
 }
@@ -157,7 +155,7 @@ function createModal(){
     buttonHeader.className = 'btn-close';
     buttonHeader.setAttribute('data-bs-dismiss', 'modal');
     buttonHeader.setAttribute('aria-label', 'Close');
-    buttonHeader.setAttribute('onclick', 'deleteModal');
+    buttonHeader.addEventListener('click', deleteModal );
     modalContentHeader.appendChild(buttonHeader);
 
     //Setting modalContentBody
@@ -180,13 +178,9 @@ function createModal(){
     pBody.id = 'modalDescription';
     modalContentBody.appendChild(pBody);
     h4Body.id = 'modalValoration';
+    h4Body.className = 'btn btn-dark rounded-circle p-2';
     modalContentBody.appendChild(h4Body);
 
-    //Open the modal parent when we create it.
-    //modal.setAttribute('aria-modal', 'true');
-    //modal.setAttribute('role', 'dialog');
-    //modal.style.display = 'block';
-    //modal.classList.add = 'show';
 }
 
 //Function to update modal Iframe SRC
@@ -198,10 +192,26 @@ function updateIframeSrc(key) {
 function updateModalContent(title,description,valoration){
     document.querySelector('#modalTitle').innerHTML = title;
     document.querySelector('#modalDescription').innerHTML = description;
-    document.querySelector('#modalValoration').innerHTML = 'Valoración: '+valoration.toFixed(2);
+    document.querySelector('#modalValoration').innerHTML = +valoration.toFixed(2);
 }
-
 //Function to delete modal
 function deleteModal(){
-
+    let parentNode = document.querySelector('#myModal');       
+    parentNode.remove();
 }
+
+/*
+document.querySelector('#myModal').addEventListener('blur', deleteModal);
+
+function to stop video when we lose the focus
+    $('#myModal').on('hidden.bs.modal', function (e) {
+        document.querySelector('#iframeModal').src = '';
+    })
+
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+    
+    myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+    })
+*/

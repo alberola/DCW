@@ -6,11 +6,23 @@ img:hover{
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
 }
-#myModal{
+#modal-dialog{
     opacity: 0.8;
-    background-color: #28242c;
-    color: #28242c;
 }
 .col{
     margin: 10px;
+}
+/*
+.modal-header{
+    background-color: #000000;
+}
+.modal-header button{
+    background-color: white;
+}
+*/
+.modal-body {
+    background-color: none;
+}
+#modalValoration{
+    cursor: auto;
 }
