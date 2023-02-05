@@ -1,4 +1,12 @@
-img:hover{
+@font-face {
+    font-family: 'bebas';
+    src: url("fonts/BebasNeue-Regular.otf");
+}
+body{
+    font-family: 'bebas';
+}
+
+.imgEvent:hover{
     cursor: pointer;
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
@@ -6,20 +14,13 @@ img:hover{
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
 }
-#modal-dialog{
+#myModal{
     opacity: 0.8;
 }
+
 .col{
     margin: 10px;
 }
-/*
-.modal-header{
-    background-color: #000000;
-}
-.modal-header button{
-    background-color: white;
-}
-*/
 .modal-body {
     background-color: none;
 }

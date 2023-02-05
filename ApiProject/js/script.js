@@ -1,6 +1,7 @@
 //Var to obtain the global container
 var container = document.querySelector('#globalContainer');
-
+//Global Array to introduce al the films we have in the webpage
+var globalArray = [];
 
 //Calling the api to obtain the values
 obtainGenresMovies('https://api.themoviedb.org/3/genre/movie/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
@@ -20,7 +21,9 @@ function getMovies(url,tittle) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        showMovies(data, tittle);
+        //Using slice to reduce the number of movie we want 
+        showMovies(data.results.slice(0, 10), tittle);
+        globalArray.push(data.results.slice(0, 10));
     });
 }
 
@@ -43,8 +46,9 @@ function obtainGenresTvSeries(url){
 
 //Function to print movies-series into the web page
 function showMovies(value, tittle) {
-    value = value.results;
+    //Navigate between the movies 10 to 10
     createRow(tittle);
+    //Obtaining the images
     value.map(element => {
         createImg(tittle,element.poster_path, element.id);
     });
@@ -58,7 +62,7 @@ function createRow(tittle) {
     createH1.className = 'text-white';
     const createRow = document.createElement('div');
     const createImgContainer = document.createElement('div');
-    createImgContainer.className = 'col';
+    createImgContainer.className = 'col image-container';
     createImgContainer.id = tittle;
     createRow.className = 'row ';
     //Introducing the elements into de global container
@@ -73,8 +77,7 @@ function createImg(tittle,imgRoute,imgId){
     const createImg = document.createElement('img');
     createImg.src = 'https://image.tmdb.org/t/p/w500'+imgRoute;
     createImg.alt = 'IMG';
-    //createImg.setAttribute('data-aos', 'zoom-in');
-    //createImg.setAttribute('data-aos-duration','3000');
+    
     createImg.setAttribute('data-bs-toggle', 'modal');
     createImg.setAttribute('data-bs-target', '#myModal');
     createImg.className = 'imgEvent p-1';
@@ -83,7 +86,6 @@ function createImg(tittle,imgRoute,imgId){
     createImg.setAttribute('onclick', 'modalItems(this)');
     //Introducing the img into the section container
     document.getElementById(tittle).appendChild(createImg);
-
 }
 
 
@@ -198,6 +200,7 @@ function updateModalContent(title,description,valoration){
 function deleteModal(){
     let parentNode = document.querySelector('#myModal');       
     parentNode.remove();
+    console.log(globalArray);
 }
 
 /*

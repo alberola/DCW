@@ -4,51 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <title>Peliculas</title>
 </head>
 <body class="bg-dark" id="bodyContent">
-    <div class="container m-5">
-        <nav class="navbar bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand float-right" href="https://www.themoviedb.org/?language=es" target="_blank">
-                <img src="img/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">  
-              </a>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="" class="text-white">TMDB</a>
-                </li>
-              </ul>
+    <!-- Header -->
+    <div class="headerImg">
+        <nav class="navbar navbar-expand-lg bg-dark mt-3">
+            <div class="container">
+                <a class="navbar-brand" href="https://www.themoviedb.org/?language=es"><img src="img/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="Logo" width="100" height="100">
+                <span class="text-info">Themoviedb</span>
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Films</a>
+                    <ul class="dropdown-menu bg-dark">
+                        <li><a class="dropdown-item text-info text-bg-dark" href="#Populares">Populares</a></li>
+                        <li><a class="dropdown-item text-info text-bg-dark" href="#Tendencia">Tendencia</a></li>
+                        <li><a class="dropdown-item text-info text-bg-dark" href="#Animación">Animación</a></li>
+                        <li><a class="dropdown-item text-info text-bg-dark" href="#Terror">Terror</a></li>
+                        <li><a class="dropdown-item text-info text-bg-dark" href="#Romance">Romance</a></li>
+                        <li><a class="dropdown-item text-info text-bg-dark" href="#Próximas Películas">Próximas Películas</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                <span class="text-white">
+                    asdasdasdasdasdas
+                </span>
+              </div>
             </div>
         </nav>
     </div>
 
-
-    <h1 class="text-center m-5 text-info">Películas</h1>
-
+    <!-- Body -->
     <div class="container-fluid" id="globalContainer">
         
     </div>
 
-    <!-- Modal 
-    <div class="modal fade modal-xl" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="500" id="iframeModal" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <h1 id="modalTitle"></h1>
-                <p id="modalDescription"></p>
-                <h4 id="valoration"></h4>
-            </div>
-        </div>
-        </div>
-    </div>
-    -->
     <!-- FOOTER -->
     <div class="text-center text-white p-3 my-3">
         <span>© 2023 Copyright:</span>
