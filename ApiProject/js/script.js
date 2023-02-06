@@ -5,7 +5,6 @@ var globalArray = [];
 
 //Calling the api to obtain the values
 obtainGenresMovies('https://api.themoviedb.org/3/genre/movie/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
-obtainGenresTvSeries('https://api.themoviedb.org/3/genre/tv/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
 
 getMovies('https://api.themoviedb.org/3/movie/popular?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Populares');
 getMovies('https://api.themoviedb.org/3/trending/movie/day?api_key=dda4633aacd800647ce023600f1aae38', 'Tendencia');
@@ -14,6 +13,15 @@ getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647
 getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=27', 'Terror');
 getMovies('https://api.themoviedb.org/3/movie/upcoming?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&page=1', 'Próximas Películas');
 getMovies('https://api.themoviedb.org/3/discover/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&with_genres=10749', 'Romance');
+
+//Function to obtain Genres and use the api to call it...
+function obtainGenresMovies(url){
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    });
+}
 
 //Function to obtain the list of movies
 function getMovies(url,tittle) {
@@ -24,23 +32,6 @@ function getMovies(url,tittle) {
         //Using slice to reduce the number of movie we want 
         showMovies(data.results.slice(0, 10), tittle);
         globalArray.push(data.results.slice(0, 10));
-    });
-}
-
-//Function to obtain Genres and use the api to call it...
-function obtainGenresMovies(url){
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    });
-}
-//Function to obtain Genres and use the api to call it...
-function obtainGenresTvSeries(url){
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
     });
 }
 
@@ -113,7 +104,6 @@ function modalItems(movieId) {
             let long = data.results.length -1 ;
             //Setting the iframe route
             updateIframeSrc(data.results[long].key);
-
         } else {
             //If we dont search a trailer we are going to put a generic video iframe
             updateIframeSrc('2YBtspm8j8M');
@@ -121,6 +111,7 @@ function modalItems(movieId) {
     });
 }
 
+//Function to create the modal
 function createModal(){
     //Creating the modal structure
     const modal = document.createElement('div');
@@ -203,18 +194,33 @@ function deleteModal(){
     console.log(globalArray);
 }
 
-/*
-document.querySelector('#myModal').addEventListener('blur', deleteModal);
 
-function to stop video when we lose the focus
-    $('#myModal').on('hidden.bs.modal', function (e) {
-        document.querySelector('#iframeModal').src = '';
-    })
+//Adding the searchFilm event
+let chatInput = document.querySelector('#searchFilm');
+chatInput.addEventListener('input', function () {
+    /*Creating the dinamic elements
+    let divSearch = document.createElement('div');
+    let divRowSearch = document.createElement('div');
+    let divFilmSearch = document.createElement('div');
+    let imgFilmSearch = document.createElement('img');
+    //Giving the settings to the dinamic elements
+    divSearch.className = 'container fluid';
+    divSearch.id = 'containerSearch';
+    divRowSearch.className = 'row';
+    divFilmSearch.className = 'offset-4 col-4 text-center';
+    //Introducing the elements into the global container
+    container.appendChild(divSearch);
+    divSearch.appendChild(divRowSearch);
+    divRowSearch.appendChild(divFilmSearch);
+    */
+    container.style.display = 'none';
+    document.getElementById('505642').style.display = 'block';
+});
 
-    const myModal = document.getElementById('myModal')
-    const myInput = document.getElementById('myInput')
-    
-    myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-    })
-*/
+chatInput.addEventListener('blur', function () {
+    const filterSearch = globalArray.filter(function(element){
+        return element.title == document.getElementById('searchFilm').value;
+    });
+    console.log(filterSearch);
+    container.style.display = 'block';
+});
