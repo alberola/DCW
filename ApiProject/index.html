@@ -9,14 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <title>Peliculas</title>
+    <title>TMDB API</title>
 </head>
 <body class="bg-dark" id="bodyContent">
     <!-- Header -->
     <div id="headerImg" class="mb-5">
         <nav class="navbar navbar-expand-lg mt-3">
             <div class="container">
-                <a class="navbar-brand" href="https://www.themoviedb.org/?language=es"><img src="img/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="Logo" width="100" height="100">
+                <a class="navbar-brand" target="_blank" href="https://www.themoviedb.org/?language=es"><img src="img/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="Logo" width="100" height="100">
                 </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,8 +45,13 @@
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchFilm">
                 </form>
+                <!-- <ul class="navbar-nav dropdown-menu text-small shadow  text-white mx-2 mt-sm-3 mt-md-0">
+                  <li>
+                    <a href="#" class="dropdown-item-text text-white text-decoration-none"><i class="bi bi-balloon-heart-fill"><span id="favouriteList"></span></i></a>
+                  </li>
+                </ul> -->
                 <span class="text-white mx-2 mt-sm-3 mt-md-0">
-                  <a href="" class="text-white text-decoration-none"><i class="bi bi-balloon-heart-fill"><span>3</span></i></a>
+                  <a href="" class="text-white text-decoration-none"><i class="bi bi-balloon-heart-fill"><span id="favouriteList"></span></i></a>
                 </span>
               </div>
             </div>

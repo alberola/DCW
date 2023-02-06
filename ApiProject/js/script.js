@@ -1,7 +1,9 @@
 //Var to obtain the global container
 var container = document.querySelector('#globalContainer');
-//Global Array to introduce al the films we have in the webpage
+//Global Array to introduce al the films we have in the webpage (help to use the filter value)
 var globalArray = [];
+//Var to obtain the cookie favourite films
+var favouriteArray = [];
 
 //Calling the api to obtain the values
 obtainGenresMovies('https://api.themoviedb.org/3/genre/movie/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
@@ -124,6 +126,7 @@ function createModal(){
     const h1Body = document.createElement('h1');
     const pBody = document.createElement('p');
     const h4Body = document.createElement('h4');
+    const favouriteButton = document.createElement('i');
 
     //Setting Parent modal 
     modal.className = 'modal fade modal-xl';
@@ -173,6 +176,31 @@ function createModal(){
     h4Body.id = 'modalValoration';
     h4Body.className = 'btn btn-dark rounded-circle p-2';
     modalContentBody.appendChild(h4Body);
+    //Favourite Button Settings
+    favouriteButton.id = 'favouriteButton';
+    favouriteButton.className = "mx-3 bi bi-heart";
+    modalContentBody.appendChild(favouriteButton);
+    //Adding the favourite modal event toggle with the cookie
+    favouriteButton.addEventListener('click', function () {
+        if (favouriteButton.className == "mx-3 bi bi-heart") {
+            favouriteButton.className = "mx-3 bi bi-heart-fill";
+            //Checking if the film is already in the favourite list
+            if (favouriteArray.indexOf(h1Body.textContent) === -1) {
+                favouriteArray.push(h1Body.textContent);
+                console.log(favouriteArray);
+                updateFavouriteList();
+                //Setting the values to the cookie
+                setCookie('cookieFavourites', JSON.stringify(favouriteArray), 9999);
+            }
+        } else {
+            favouriteButton.className = "mx-3 bi bi-heart";
+            favouriteArray.splice((favouriteArray.indexOf(h1Body.textContent)), 1);
+            console.log(favouriteArray);
+            //Act the values to the cookie
+            setCookie('cookieFavourites', JSON.stringify(favouriteArray), 9999);
+            updateFavouriteList();
+        }
+    });
 
 }
 
@@ -186,6 +214,12 @@ function updateModalContent(title,description,valoration){
     document.querySelector('#modalTitle').innerHTML = title;
     document.querySelector('#modalDescription').innerHTML = description;
     document.querySelector('#modalValoration').innerHTML = +valoration.toFixed(2);
+    let favouriteButtonArray = document.querySelector('#favouriteButton');
+    if (favouriteArray.indexOf(title) == -1) {
+        favouriteButtonArray.className = "mx-3 bi bi-heart";
+    } else {
+        favouriteButtonArray.className = "mx-3 bi bi-heart-fill";
+    }
 }
 //Function to delete modal
 function deleteModal(){
@@ -198,7 +232,7 @@ function deleteModal(){
 //Adding the searchFilm event
 let chatInput = document.querySelector('#searchFilm');
 chatInput.addEventListener('input', function () {
-    /*Creating the dinamic elements
+    //Creating the dinamic elements
     let divSearch = document.createElement('div');
     let divRowSearch = document.createElement('div');
     let divFilmSearch = document.createElement('div');
@@ -212,11 +246,8 @@ chatInput.addEventListener('input', function () {
     container.appendChild(divSearch);
     divSearch.appendChild(divRowSearch);
     divRowSearch.appendChild(divFilmSearch);
-    */
     container.style.display = 'none';
-    document.getElementById('505642').style.display = 'block';
 });
-
 chatInput.addEventListener('blur', function () {
     const filterSearch = globalArray.filter(function(element){
         return element.title == document.getElementById('searchFilm').value;
@@ -224,3 +255,51 @@ chatInput.addEventListener('blur', function () {
     console.log(filterSearch);
     container.style.display = 'block';
 });
+
+//Update favourite list
+function updateFavouriteList () {
+    let favouriteList = document.querySelector('#favouriteList');
+    (favouriteArray == 0)? favouriteList.innerHTML = '': favouriteList.innerHTML = favouriteArray.length;
+    console.log(favouriteArray);
+}
+
+//Checking if the cookie is in use to update
+if (getCookie('cookieFavourites') !== "") {
+    //We update the cart value
+    favouriteArray = JSON.parse(getCookie('cookieFavourites'));
+    updateFavouriteList();
+
+} 
+
+// set Value to the cookie
+function setCookie(name, value, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+// get the Cookie values
+function getCookie(name) {
+    var name = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+/* //SHOW THE ELEMENTS OF THE ARRAY IN THE WEB-PAGE
+cart.forEach(item => {
+    let li = document.createElement('li');
+    li.classList.add('list-group-item');
+    li.textContent = item.value;
+    cartList.appendChild(li);
+  });
+  */
