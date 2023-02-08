@@ -45,18 +45,21 @@
                 <form class="d-flex" role="search" id="formControl">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchFilm">
                 </form>
-                <a href="#" class="text-white mx-2 mt-sm-3 mt-md-0 text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-balloon-heart-fill"><span id="favouriteList"></span>
-                  </i>
-                </a>
-                <ul class="dropdown-menu text-small shadow p-3" aria-labelledby="dropdownUser1" id="menuFavourites">
-                  <li>
-                    <h5>Tus Películas Favoritas</h5>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                </ul>
+                <div class="dropstart">
+                  <a href="#" class="text-white mx-2 pt-sm-3 pt-md-0 text-decoration-none dropdown" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-balloon-heart-fill">
+                      <span id="favouriteList"></span>
+                    </i>
+                  </a>
+                  <ul class="dropdown-menu shadow p-3 " aria-labelledby="dropdownUser1" id="menuFavourites">
+                    <li class="dropdown-item">
+                      <h5>Tus Películas Favoritas</h5>
+                    </li>
+                    <li class="dropdown-item">
+                      <hr class="dropdown-divider">
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
         </nav>

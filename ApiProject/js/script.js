@@ -48,7 +48,7 @@ function showMovies(value, tittle) {
     createRow(tittle);
     //Obtaining the images
     value.map(element => {
-        createImg(tittle,element.poster_path, element.id);
+        createImg(tittle,element.poster_path, element.id, element.title);
     });
 }
 
@@ -63,7 +63,7 @@ function createRow(tittle) {
     const createImgContainer = document.createElement('div');
     createImgContainer.className = 'col image-container';
     createImgContainer.id = tittle;
-    createRow.className = 'row ';
+    createRow.className = 'row';
     //Introducing the elements into de global container
     container.appendChild(createH1);
     container.appendChild(createRow);
@@ -71,7 +71,7 @@ function createRow(tittle) {
 }
 
 //Function to introduce the elements img elements into the sections
-function createImg(tittle,imgRoute,imgId){
+function createImg(title,imgRoute,imgId, imgTitle){
 
     const createImg = document.createElement('img');
     createImg.src = 'https://image.tmdb.org/t/p/w500'+imgRoute;
@@ -81,11 +81,12 @@ function createImg(tittle,imgRoute,imgId){
     createImg.setAttribute('data-bs-target', '#myModal');
     createImg.className = 'imgEvent p-1';
     createImg.id = imgId;
-    createImg.tabIndex = tittle;
+    createImg.alt = imgTitle;
+    createImg.tabIndex;
     createImg.setAttribute('width','10%');
     createImg.setAttribute('onclick', 'modalItems(this)');
     //Introducing the img into the section container
-    document.getElementById(tittle).appendChild(createImg);
+    document.getElementById(title).appendChild(createImg);
 }
 
 
@@ -259,24 +260,24 @@ function createSearchDiv () {
 chatInput.addEventListener('input', function () {
     //Introducing the elements into the global container
     container.style.display = 'none';
-    //as we have arrays inside arrays we have to make a forEach to obtain the values of the titles
-    let buscador = globalArray.filter(element =>{
-        element.forEach (value => {
-            if (value.title == document.getElementById('searchFilm').value) {
-                return value.title;
-            } else {
-                return 'Value not found';
-            }
+    //As we have arrays inside arrays we have to make a map to obtain the values of the titles and then we use the filter of each array
+    let buscador = globalArray.map(element =>{
+        return element.filter (value => {
+            return (value.title).includes(chatInput.value);
         })
     });
+    //Printing the data to show the film.
     console.log(buscador);
+    for (let i = 0; i < buscador.length; i++) {
+        buscador[i].forEach(element => {
+            console.log(element.title);
+        });
+    }
+    
 
 });
+//Event listener to return results
 chatInput.addEventListener('blur', function () {
-    // const filterSearch = globalArray.filter(function(element){
-    //     return element.title == document.getElementById('searchFilm').value;
-    // });
-    // console.log(filterSearch);
     container.style.display = 'block';
 });
 
