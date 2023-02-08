@@ -5,6 +5,11 @@ var globalArray = [];
 //Var to obtain the cookie favourite films
 var favouriteArray = [];
 
+//Disable the form action
+document.querySelector('#formControl').addEventListener('submit', function(e) {
+    e.preventDefault();
+});
+
 //Calling the api to obtain the values
 obtainGenresMovies('https://api.themoviedb.org/3/genre/movie/list?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES');
 
@@ -52,7 +57,8 @@ function createRow(tittle) {
     //Creating the elements and setting the attributes
     const createH1 = document.createElement('h1');
     createH1.innerText = tittle;
-    createH1.className = 'text-white';
+    createH1.className = 'rowName';
+    createH1.tabIndex = tittle; 
     const createRow = document.createElement('div');
     const createImgContainer = document.createElement('div');
     createImgContainer.className = 'col image-container';
@@ -75,6 +81,7 @@ function createImg(tittle,imgRoute,imgId){
     createImg.setAttribute('data-bs-target', '#myModal');
     createImg.className = 'imgEvent p-1';
     createImg.id = imgId;
+    createImg.tabIndex = tittle;
     createImg.setAttribute('width','10%');
     createImg.setAttribute('onclick', 'modalItems(this)');
     //Introducing the img into the section container
@@ -191,6 +198,7 @@ function createModal(){
                 updateFavouriteList();
                 //Setting the values to the cookie
                 setCookie('cookieFavourites', JSON.stringify(favouriteArray), 9999);
+                printFavouriteList (h1Body.textContent);
             }
         } else {
             favouriteButton.className = "mx-3 bi bi-heart";
@@ -199,6 +207,7 @@ function createModal(){
             //Act the values to the cookie
             setCookie('cookieFavourites', JSON.stringify(favouriteArray), 9999);
             updateFavouriteList();
+            deleteFavouriteList(h1Body.textContent);
         }
     });
 
@@ -231,7 +240,8 @@ function deleteModal(){
 
 //Adding the searchFilm event
 let chatInput = document.querySelector('#searchFilm');
-chatInput.addEventListener('input', function () {
+//Creating the div container of the film searched
+function createSearchDiv () {
     //Creating the dinamic elements
     let divSearch = document.createElement('div');
     let divRowSearch = document.createElement('div');
@@ -242,17 +252,31 @@ chatInput.addEventListener('input', function () {
     divSearch.id = 'containerSearch';
     divRowSearch.className = 'row';
     divFilmSearch.className = 'offset-4 col-4 text-center';
-    //Introducing the elements into the global container
-    container.appendChild(divSearch);
+    document.querySelector('#bodyContent').appendChild(divSearch);
     divSearch.appendChild(divRowSearch);
     divRowSearch.appendChild(divFilmSearch);
+}
+chatInput.addEventListener('input', function () {
+    //Introducing the elements into the global container
     container.style.display = 'none';
+    //as we have arrays inside arrays we have to make a forEach to obtain the values of the titles
+    let buscador = globalArray.filter(element =>{
+        element.forEach (value => {
+            if (value.title == document.getElementById('searchFilm').value) {
+                return value.title;
+            } else {
+                return 'Value not found';
+            }
+        })
+    });
+    console.log(buscador);
+
 });
 chatInput.addEventListener('blur', function () {
-    const filterSearch = globalArray.filter(function(element){
-        return element.title == document.getElementById('searchFilm').value;
-    });
-    console.log(filterSearch);
+    // const filterSearch = globalArray.filter(function(element){
+    //     return element.title == document.getElementById('searchFilm').value;
+    // });
+    // console.log(filterSearch);
     container.style.display = 'block';
 });
 
@@ -260,7 +284,6 @@ chatInput.addEventListener('blur', function () {
 function updateFavouriteList () {
     let favouriteList = document.querySelector('#favouriteList');
     (favouriteArray == 0)? favouriteList.innerHTML = '': favouriteList.innerHTML = favouriteArray.length;
-    console.log(favouriteArray);
 }
 
 //Checking if the cookie is in use to update
@@ -268,7 +291,15 @@ if (getCookie('cookieFavourites') !== "") {
     //We update the cart value
     favouriteArray = JSON.parse(getCookie('cookieFavourites'));
     updateFavouriteList();
-
+    //Setting the elements to the web page when we read the cookie
+    let favouriteButton = document.querySelector('#menuFavourites');
+    favouriteArray.forEach(element => {
+        let li = document.createElement('li');
+        li.classList.add('list-group-item');
+        li.id = element;
+        li.textContent = element;
+        favouriteButton.appendChild(li);
+    });
 } 
 
 // set Value to the cookie
@@ -278,6 +309,7 @@ function setCookie(name, value, exdays) {
     var expires = "expires="+ d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
+
 // get the Cookie values
 function getCookie(name) {
     var name = name + "=";
@@ -295,11 +327,17 @@ function getCookie(name) {
     return "";
 }
 
-/* //SHOW THE ELEMENTS OF THE ARRAY IN THE WEB-PAGE
-cart.forEach(item => {
+//SHOW THE ELEMENTS OF THE ARRAY IN THE WEB-PAGE
+function printFavouriteList (element) {
+    let favouriteButton = document.querySelector('#menuFavourites');
     let li = document.createElement('li');
     li.classList.add('list-group-item');
-    li.textContent = item.value;
-    cartList.appendChild(li);
-  });
-  */
+    li.id = element;
+    li.textContent = element;
+    favouriteButton.appendChild(li);
+}
+//Function to delete elements from the list
+function deleteFavouriteList (element) {
+    document.getElementById(element).remove();
+}
+

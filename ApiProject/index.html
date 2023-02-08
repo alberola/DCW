@@ -18,41 +18,45 @@
             <div class="container">
                 <a class="navbar-brand" target="_blank" href="https://www.themoviedb.org/?language=es"><img src="img/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="Logo" width="100" height="100">
                 </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#Populares">Populares</a>
+                    <a class="nav-link active " aria-current="page" href="#Populares">Populares</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="#Animación">Animación</a>
+                    <a class="nav-link" aria-current="page" href="#Animación">Animación</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="#Terror">Terror</a>
+                    <a class="nav-link " aria-current="page" href="#Terror">Terror</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="#Romance">Romance</a>
+                    <a class="nav-link " aria-current="page" href="#Romance">Romance</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="#Tendencia">Tendencia</a>
+                    <a class="nav-link" aria-current="page" href="#Tendencia">Tendencia</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="#Próximas Películas">Proximamente</a>
+                    <a class="nav-link" aria-current="page" href="#Próximas Películas">Proximamente</a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchFilm">
+                <form class="d-flex" role="search" id="formControl">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchFilm">
                 </form>
-                <!-- <ul class="navbar-nav dropdown-menu text-small shadow  text-white mx-2 mt-sm-3 mt-md-0">
+                <a href="#" class="text-white mx-2 mt-sm-3 mt-md-0 text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-balloon-heart-fill"><span id="favouriteList"></span>
+                  </i>
+                </a>
+                <ul class="dropdown-menu text-small shadow p-3" aria-labelledby="dropdownUser1" id="menuFavourites">
                   <li>
-                    <a href="#" class="dropdown-item-text text-white text-decoration-none"><i class="bi bi-balloon-heart-fill"><span id="favouriteList"></span></i></a>
+                    <h5>Tus Películas Favoritas</h5>
                   </li>
-                </ul> -->
-                <span class="text-white mx-2 mt-sm-3 mt-md-0">
-                  <a href="" class="text-white text-decoration-none"><i class="bi bi-balloon-heart-fill"><span id="favouriteList"></span></i></a>
-                </span>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                </ul>
               </div>
             </div>
         </nav>
@@ -66,11 +70,11 @@
     <!-- FOOTER -->
     <div class="text-center text-white p-3 my-3">
         <span>© 2023 Copyright:</span>
-        <a class="text-info" href="https://github.com/alberola" target="_blank">Alejandro Alberola</a>
+        <a class="footerText" href="https://github.com/alberola" target="_blank">Alejandro Alberola</a>
     </div>
-    <script src="js/swiper.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 </body>
 </html>
