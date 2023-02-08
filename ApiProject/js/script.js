@@ -38,7 +38,7 @@ function getMovies(url,tittle) {
         console.log(data);
         //Using slice to reduce the number of movie we want 
         showMovies(data.results.slice(0, 10), tittle);
-        globalArray.push(data.results.slice(0, 10));
+        // globalArray.push(data.results.slice(0, 10));
     });
 }
 
@@ -82,9 +82,10 @@ function createImg(title,imgRoute,imgId, imgTitle){
     createImg.className = 'imgEvent p-1';
     createImg.id = imgId;
     createImg.alt = imgTitle;
-    createImg.tabIndex;
+    createImg.tabIndex = imgTitle;
     createImg.setAttribute('width','10%');
     createImg.setAttribute('onclick', 'modalItems(this)');
+    globalArray.push(createImg);
     //Introducing the img into the section container
     document.getElementById(title).appendChild(createImg);
 }
@@ -235,7 +236,6 @@ function updateModalContent(title,description,valoration){
 function deleteModal(){
     let parentNode = document.querySelector('#myModal');       
     parentNode.remove();
-    console.log(globalArray);
 }
 
 
@@ -260,22 +260,46 @@ function createSearchDiv () {
 chatInput.addEventListener('input', function () {
     //Introducing the elements into the global container
     container.style.display = 'none';
-    //As we have arrays inside arrays we have to make a map to obtain the values of the titles and then we use the filter of each array
-    let buscador = globalArray.map(element =>{
-        return element.filter (value => {
-            return (value.title).includes(chatInput.value);
+    let buscador = globalArray.filter (element => {
+        if (globalArray.indexOf(element.alt) === -1) {
+            return (element.alt).includes(chatInput.value);
+        }
+    })
+    if (buscador.length !== 0) {
+        buscador.forEach ( item => {
+            document.querySelector('#bodyContent').appendChild(item);
         })
-    });
-    //Printing the data to show the film.
-    console.log(buscador);
-    for (let i = 0; i < buscador.length; i++) {
-        buscador[i].forEach(element => {
-            console.log(element.title);
-        });
+    } else if ((chatInput.value).length == 0) {
+        buscador.style.display = 'none';
+    } else {
+        container.style.display = 'block';
     }
-    
 
+    //As we have arrays inside arrays we have to make a map to obtain the values of the titles and then we use the filter of each array
+    // let buscador = globalArray.map(element =>{
+    //     return element.filter (value => {
+    //         return (value.title).includes(chatInput.value);
+    //     })
+    // });
+    // //Printing the data to show the film.
+    // console.log(buscador);
+    // for (let i = 0; i < buscador.length; i++) {
+    //     buscador[i].forEach(element => {
+    //         console.log(element.poster_path);
+    //     });
+    // }
 });
+
+//Function to create img with the title searched
+function createImgSearch(route,id,title) {
+    const imgFilmSearch = document.createElement('img');
+    imgFilmSearch.src = 'https://image.tmdb.org/t/p/w500'+route;
+    imgFilmSearch.id = id;
+    imgFilmSearch.alt = title;
+    imgFilmSearch.setAttribute('onclick', 'modalItems(this)');
+}
+
+
 //Event listener to return results
 chatInput.addEventListener('blur', function () {
     container.style.display = 'block';
