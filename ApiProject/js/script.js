@@ -241,22 +241,6 @@ function deleteModal(){
 
 //Adding the searchFilm event
 let chatInput = document.querySelector('#searchFilm');
-//Creating the div container of the film searched
-function createSearchDiv (imgObject) {
-    //Creating the dinamic elements
-    let divSearch = document.createElement('div');
-    let divRowSearch = document.createElement('div');
-    let divFilmSearch = document.createElement('div');
-    //Giving the settings to the dinamic elements
-    divSearch.className = 'container fluid';
-    divSearch.id = 'containerSearch';
-    divRowSearch.className = 'row';
-    divFilmSearch.className = 'offset-4 col-4 text-center';
-    document.querySelector('#bodyContent').appendChild(divSearch);
-    divSearch.appendChild(divRowSearch);
-    divRowSearch.appendChild(divFilmSearch);
-    imgObject.appendChild(divFilmSearch);
-}
 
 chatInput.addEventListener("blur", function() {
     container.style.display = 'block';
