@@ -242,12 +242,11 @@ function deleteModal(){
 //Adding the searchFilm event
 let chatInput = document.querySelector('#searchFilm');
 //Creating the div container of the film searched
-function createSearchDiv () {
+function createSearchDiv (imgObject) {
     //Creating the dinamic elements
     let divSearch = document.createElement('div');
     let divRowSearch = document.createElement('div');
     let divFilmSearch = document.createElement('div');
-    let imgFilmSearch = document.createElement('img');
     //Giving the settings to the dinamic elements
     divSearch.className = 'container fluid';
     divSearch.id = 'containerSearch';
@@ -256,39 +255,39 @@ function createSearchDiv () {
     document.querySelector('#bodyContent').appendChild(divSearch);
     divSearch.appendChild(divRowSearch);
     divRowSearch.appendChild(divFilmSearch);
+    imgObject.appendChild(divFilmSearch);
 }
-chatInput.addEventListener('input', function () {
-    //Introducing the elements into the global container
-    container.style.display = 'none';
-    let buscador = globalArray.filter (element => {
-        if (globalArray.indexOf(element.alt) === -1) {
-            return (element.alt).includes(chatInput.value);
-        }
-    })
-    if (buscador.length !== 0) {
-        buscador.forEach ( item => {
-            document.querySelector('#bodyContent').appendChild(item);
-        })
-    } else if ((chatInput.value).length == 0) {
-        buscador.style.display = 'none';
-    } else {
-        container.style.display = 'block';
-    }
 
-    //As we have arrays inside arrays we have to make a map to obtain the values of the titles and then we use the filter of each array
-    // let buscador = globalArray.map(element =>{
-    //     return element.filter (value => {
-    //         return (value.title).includes(chatInput.value);
-    //     })
-    // });
-    // //Printing the data to show the film.
-    // console.log(buscador);
-    // for (let i = 0; i < buscador.length; i++) {
-    //     buscador[i].forEach(element => {
-    //         console.log(element.poster_path);
-    //     });
-    // }
+chatInput.addEventListener("blur", function() {
+    container.style.display = 'block';
+    getMovies('https://api.themoviedb.org/3/search/movie?api_key=dda4633aacd800647ce023600f1aae38&language=es-ES&query='+(chatInput.value)+'&include_adult=false', chatInput.value);
+
+    /* IMPORTANTE HAGO UN EJEMPLO DE USO DE FILTER PARA FILTRAR LOS DATOS DESEADOS PERO ES MUCHO MAS SENCILLO DE IMPLEMENTAR EN MI CASO EL BUSCADOR QUE PROVEE LA API*/
+
+    // Introducing the elements into the global container
+    // container.style.display = "none";
+    // const valueMap = {};
+    // const searcher = globalArray.filter(element => {
+    //     if (!element.alt.includes(chatInput.value)) {
+    //       return false;
+    //     } else {
+    //       if (!valueMap[element.alt]) {
+    //         valueMap[element.alt] = true;
+    //         return true;
+    //       } else {
+    //         return false;
+    //       }
+    //     }
+    // }).map(element => element.id);
+    // searcher.forEach ( img => {
+    //     console.log(img);
+    //     img.style.display = 'block';
+    // })
 });
+chatInput.addEventListener("input", function() {
+    container.style.display = 'none';
+});
+
 
 //Function to create img with the title searched
 function createImgSearch(route,id,title) {
